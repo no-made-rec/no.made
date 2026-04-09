@@ -270,6 +270,25 @@
 
 <div class="black-stack">
     <main class="section-container">
+
+    /* 1. Garante que o container corte o que sobrar do zoom */
+.img-container {
+    width: 100%;
+    aspect-ratio: 16/9; /* Força a proporção de cinema */
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+/* 2. Aplica o zoom na imagem para sumir com as bordas pretas */
+.card-img.wide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* O scale de 1.1 a 1.2 geralmente é o suficiente para esconder as bordas do YT */
+    transform: scale(1.15); 
+    display: block;
+}
         
         <section id="free-beats">
             <h2 class="section-title">BEATS FREE</h2>
