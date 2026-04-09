@@ -119,7 +119,7 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 
-    /* FIX DEFINITIVO DO ZOOM */
+    /* --- CONTROLE DE IMAGEM E ZOOM --- */
     .img-container {
         width: 100%;
         overflow: hidden;
@@ -133,18 +133,18 @@
         display: block;
         object-fit: cover;
         transition: 0.5s ease;
+        transform: scale(1); /* Padrão */
     }
 
-    /* Quadrado (Portfólio) - Sem zoom */
-    .square { aspect-ratio: 1/1; transform: scale(1) !important; }
+    .square { aspect-ratio: 1/1; }
 
-    /* Wide (Beats) - Com zoom para limpar bordas */
+    /* O ZOOM DE 1.8x SÓ ACONTECE NOS BEATS */
     .free-beats-section .card-img.wide { 
         aspect-ratio: 16/9; 
         transform: scale(1.8) !important; 
     }
 
-    /* CARROSSEL PORTFÓLIO */
+    /* --- CARROSSEL PORTFÓLIO --- */
     .portfolio-wrapper {
         position: relative;
         display: flex;
@@ -203,10 +203,7 @@
         display: block;
     }
 
-    .portfolio-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--accent);
-    }
+    .portfolio-card:hover { transform: translateY(-8px); border-color: var(--accent); }
 
     .portfolio-card .card-info {
         position: absolute;
@@ -272,7 +269,7 @@
     }
 
     .product-content { position: relative; z-index: 1; }
-    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; text-transform: none; }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; text-transform: none; letter-spacing: 0.5px;}
     .price-tag { font-weight: 800; font-size: 18px; }
     .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; opacity: 0.8; font-size: 14px; }
     .new-price { color: var(--price-new); }
@@ -285,7 +282,7 @@
     }
 
     .location-info { margin-top: 25px; text-align: center; }
-    .location-info p { opacity: 0.6; font-size: 14px; }
+    .location-info p { opacity: 0.6; font-size: 14px; letter-spacing: 1px; }
     .btn-maps { display: inline-block; margin-top: 15px; color: var(--accent); text-decoration: none; font-weight: 700; border-bottom: 1px solid var(--accent); }
 
     .contact-cta {
@@ -293,14 +290,20 @@
         border-radius: 40px; border: 2px solid rgba(101,193,251,0.1);
         background: linear-gradient(145deg, #0a0a0a, #111);
     }
+    .contact-cta h2 { color: #65c1fb; margin-bottom: 10px; }
 
     .btn-v1 {
         display: inline-block; padding: 22px 50px; background: transparent;
         color: var(--accent); border: 2px solid var(--accent);
         text-decoration: none; border-radius: 18px; font-weight: 800;
+        letter-spacing: 1px; transition: 0.3s ease; margin-top: 30px;
     }
+    .btn-v1:hover { background: var(--accent); color: #000; box-shadow: 0 0 40px rgba(101,193,251,0.5); }
 
-    footer { text-align: center; padding: 80px 20px; opacity: 0.3; font-size: 10px; background-color: var(--dark-bg); }
+    footer {
+        text-align: center; padding: 80px 20px; opacity: 0.3;
+        font-size: 10px; letter-spacing: 2px; background-color: var(--dark-bg);
+    }
 
     @media (max-width: 1024px) {
         .portfolio-grid-carousel .portfolio-card { min-width: calc(33.33% - 14px); }
@@ -344,28 +347,27 @@
             <div class="free-beats-grid">
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Always</span><span class="card-artist">Free for Non Profit</span><span class="card-tech">125 BPM | Em</span><span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span></div>
-                </a>
+                    <div class="card-info"><span class="card-title">Always</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
                 <a href="https://youtu.be/0WjVd2kVz3A" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/0WjVd2kVz3A/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Heaven</span><span class="card-artist">Free for Non Profit</span><span class="card-tech">115 BPM | Gm</span><span class="card-role">Dudu x Jotapê Type Beat</span></div>
+                    <div class="card-info"><span class="card-title">Heaven</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
                 <a href="https://youtu.be/xa5LqMDkeVU" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/xa5LqMDkeVU/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Bonk</span><span class="card-artist">Free for Non Profit</span><span class="card-tech">135 BPM | C</span><span class="card-role">Yeat x Ken Carson Type Beat</span></div>
+                    <div class="card-info"><span class="card-title">Bonk</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
                 <a href="https://youtu.be/_RJ9JK8qBrY" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/_RJ9JK8qBrY/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Scary</span><span class="card-artist">Free for Non Profit</span><span class="card-tech">176 BPM | Bm</span><span class="card-role">Tchelo x Kyan Type Beat</span></div>
+                    <div class="card-info"><span class="card-title">Scary</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
                 <a href="https://youtu.be/fyDUekf0SB4" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/fyDUekf0SB4/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Caveman</span><span class="card-artist">Free for Non Profit</span><span class="card-tech">132 BPM | Dm</span><span class="card-role">Carti x Trippie Redd Type Beat</span></div>
+                    <div class="card-info"><span class="card-title">Caveman</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
                 <a href="https://youtu.be/JdmJjsv9cb0" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/JdmJjsv9cb0/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Off Lights</span><span class="card-artist">Free for Non Profit</span><span class="card-tech">120 BPM | G#m</span><span class="card-role">Massaru x Kyan Type Beat</span></div>
+                    <div class="card-info"><span class="card-title">Off Lights</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
             </div>
         </section>
@@ -375,49 +377,22 @@
             <div class="portfolio-wrapper">
                 <button class="nav-arrow arrow-left" onclick="scrollPort('left')"><i class="fas fa-chevron-left"></i></button>
                 <div class="portfolio-grid-carousel" id="portfolioScroll">
-                    
-                    <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=tldirG6PSTm3cqcqwXeerw" class="portfolio-card" target="_blank">
+                    <a href="LINK_SPOTIFY" class="portfolio-card" target="_blank">
                         <img src="coverart/cdg.jpg" class="card-img square">
                         <div class="card-info"><span class="card-title">CDG</span><span class="card-artist">ALV</span><span class="card-role">MIX/MASTER</span></div>
                     </a>
-                    
-                    <a href="https://open.spotify.com/intl-pt/album/3ZCthM6CE2JSvCRXTPwKeg?si=M2D_BlMkQzOLSpHK0P0f8Q" class="portfolio-card" target="_blank">
+                    <a href="LINK_SPOTIFY" class="portfolio-card" target="_blank">
                         <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info"><span class="card-title">BH É SEU MUNDO</span><span class="card-artist">lavick</span><span class="card-role">PRODUÇÃO COMPLETA</span></div>
                     </a>
-
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 3</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 4</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 5</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 6</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 7</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 8</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 9</span></div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://via.placeholder.com/500" class="card-img square">
-                        <div class="card-info"><span class="card-title">LANÇAMENTO</span><span class="card-artist">Em breve</span><span class="card-role">TESTE SLOT 10</span></div>
-                    </div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 3</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 4</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 5</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 6</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 7</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 8</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 9</span></div></div>
+                    <div class="portfolio-card"><img src="https://via.placeholder.com/500" class="card-img square"><div class="card-info"><span>Slot Teste 10</span></div></div>
                 </div>
                 <button class="nav-arrow arrow-right" onclick="scrollPort('right')"><i class="fas fa-chevron-right"></i></button>
             </div>
@@ -428,7 +403,7 @@
             <div class="shop-grid">
                 <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
                     <div class="product-overlay"></div>
-                    <div class="product-content"><h3>SUPERPACK DE BEATS</h3><div class="price-tag"><span class="old-price">R$ 199</span><span class="new-price">R$ 95</span></div></div>
+                    <div class="product-content"><h3>SUPERPACK DE BEATS</h3><div class="price-tag"><span class="new-price">R$ 95</span></div></div>
                 </a>
                 <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
                     <div class="product-overlay"></div>
@@ -439,7 +414,7 @@
                 </a>
                 <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
                     <div class="product-overlay"></div>
-                    <div class="product-content"><h3>methodical. loop pack</h3><div class="price-tag"><span class="old-price">R$ 79</span><span class="new-price">R$ 45</span></div></div>
+                    <div class="product-content"><h3>methodical. loop pack</h3><div class="price-tag"><span class="new-price">R$ 45</span></div></div>
                 </a>
             </div>
         </section>
@@ -447,13 +422,19 @@
         <!-- <section id="location" class="map-section">
             <h2 class="section-title">COMO CHEGAR?</h2>
             <div class="map-container">
-                <iframe src="https://maps.google.com/?cid=10832366942896653318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://maps.google.com/?cid=10832366942896653318&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ7" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <div class="location-info">
                 <p>Rua Duarte da Costa, 360 - Liberdade, Belo Horizonte - MG</p>
                 <a href="https://goo.gl/maps/ryYcEESRpgARvPZe7" target="_blank" class="btn-maps">ABRIR NO GOOGLE MAPS</a>
             </div>
         </section> -->
+
+        <section id="contato" class="contact-cta">
+            <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
+            <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">Desenvolvemos sua sonoridade do zero com exclusividade total</p>
+            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO PERSONALIZADO</a>
+        </section>
 
     </main>
     <footer>© 2026 NÔMADE RECORD'S.</footer>
@@ -468,5 +449,4 @@
     }
 </script>
 </body>
-</html>
 </html>
