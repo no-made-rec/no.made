@@ -37,10 +37,10 @@
         text-decoration: none;
         margin-left: 25px;
         font-size: 12px;
-        text-transform: uppercase;
         letter-spacing: 2px;
         opacity: 0.7;
         transition: 0.3s;
+        /* text-transform removido para respeitar sua escrita */
     }
     
     .nav-links a:hover { opacity: 1; color: var(--accent); }
@@ -82,8 +82,8 @@
         margin-bottom: 40px;
         border-left: 3px solid var(--accent);
         padding-left: 15px;
-        text-transform: uppercase;
         letter-spacing: 1px;
+        /* text-transform removido */
     }
 
     /* --- PORTFOLIO GRID (6 em 6) --- */
@@ -137,11 +137,11 @@
     .card-role {
         font-size: 11px;
         color: #666;
-        text-transform: uppercase;
         letter-spacing: 1px;
+        /* text-transform removido */
     }
 
-    /* --- SHOP SECTION (ATUALIZADA: TEXTO NO TOPO) --- */
+    /* --- SHOP SECTION (TEXTO NO TOPO) --- */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -154,7 +154,7 @@
         border-radius: 15px;
         overflow: hidden;
         display: flex;
-        align-items: flex-start; /* Texto sobe para o topo */
+        align-items: flex-start;
         padding: 30px;
         text-decoration: none;
         color: white;
@@ -174,7 +174,6 @@
     .product-overlay {
         position: absolute;
         inset: 0;
-        /* Gradiente invertido: mais escuro no topo para dar leitura ao texto */
         background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 50%);
     }
 
@@ -183,7 +182,7 @@
         z-index: 1;
     }
 
-    .product-content h3 { margin: 0 0 5px 0; font-size: 18px; text-transform: uppercase; }
+    .product-content h3 { margin: 0 0 5px 0; font-size: 18px; }
     .product-content p { margin: 0; opacity: 0.9; font-size: 14px; font-weight: 500; }
 
     /* --- CTA FINAL --- */
@@ -205,10 +204,10 @@
         text-decoration: none;
         border-radius: 15px;
         font-weight: 800;
-        text-transform: uppercase;
         letter-spacing: 1px;
         transition: 0.3s ease;
         margin-top: 25px;
+        /* text-transform removido */
     }
 
     .btn-v1:hover {
@@ -230,16 +229,16 @@
 <nav>
     <div class="logo"><strong>NO.MADE</strong></div>
     <div class="nav-links">
-        <a href="#portfolio">Portfólio</a>
-        <a href="#shop">Loja</a>
-        <a href="#contato">Contato</a>
+        <a href="#portfolio">PORTIFÓLIO</a>
+        <a href="#shop">LOJA</a>
+        <a href="#contato">CONTATO</a>
     </div>
 </nav>
 
 <header class="hero">
     <img src="img/logo.png" alt="Logo Nômade" class="hero-logo">
     <h1>Nômade Record's</h1>
-    <p style="opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px;">
+    <p style="opacity: 0.5; letter-spacing: 2px; font-size: 12px; margin-top: 10px;">
         Produtora Independente de BH
     </p>
 </header>
@@ -247,7 +246,7 @@
 <main class="section-container">
     
     <section id="portfolio">
-        <h2 class="section-title">Portfólio</h2>
+        <h2 class="section-title">PORTIFÓLIO</h2>
         <div class="portfolio-grid">
             
             <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=iVUg9DgaRNa7r2xiZwE4VA" class="portfolio-card" target="_blank">
@@ -264,15 +263,15 @@
                 <div class="card-info">
                     <span class="card-title">BH É SEU MUNDO</span>
                     <span class="card-artist">lavick</span>
-                    <span class="card-role">Produção Completa</span>
+                    <span class="card-role">PRODUÇÃO COMPLETA</span>
                 </div>
             </a>
 
-            </div>
+        </div>
     </section>
 
     <section id="shop">
-        <h2 class="section-title">Produtos e Packs</h2>
+        <h2 class="section-title">PRODUTOS E PACKS</h2>
         <div class="shop-grid">
             
             <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
