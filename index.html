@@ -59,7 +59,7 @@
     }
 
     .hero-logo {
-        height: 100px; /* Ajuste conforme o tamanho da sua logo */
+        height: 100px;
         margin-bottom: 10px;
         filter: drop-shadow(0 0 10px rgba(101,193,251,0.2));
     }
@@ -68,7 +68,6 @@
         font-size: clamp(32px, 8vw, 60px);
         margin: 0;
         letter-spacing: -1px;
-        /* Removido o text-transform: lowercase para respeitar sua escrita */
     }
 
     /* --- GRID SISTEMA --- */
@@ -101,7 +100,7 @@
         overflow: hidden;
         transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         border: 1px solid rgba(255,255,255,0.03);
-        text-decoration: none; /* Garante que o link não mude a cor do texto */
+        text-decoration: none;
         color: inherit;
         display: block;
     }
@@ -142,7 +141,7 @@
         letter-spacing: 1px;
     }
 
-    /* --- SHOP SECTION --- */
+    /* --- SHOP SECTION (ATUALIZADA: TEXTO NO TOPO) --- */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -155,7 +154,7 @@
         border-radius: 15px;
         overflow: hidden;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start; /* Texto sobe para o topo */
         padding: 30px;
         text-decoration: none;
         color: white;
@@ -170,13 +169,13 @@
         border-color: var(--accent);
     }
 
-    /* Ajuste específico para o Methodical */
     .methodical-bg { background-position: bottom !important; }
 
     .product-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 70%);
+        /* Gradiente invertido: mais escuro no topo para dar leitura ao texto */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 50%);
     }
 
     .product-content {
@@ -184,10 +183,10 @@
         z-index: 1;
     }
 
-    .product-content h3 { margin: 0 0 5px 0; font-size: 18px; }
-    .product-content p { margin: 0; opacity: 0.8; font-size: 14px; }
+    .product-content h3 { margin: 0 0 5px 0; font-size: 18px; text-transform: uppercase; }
+    .product-content p { margin: 0; opacity: 0.9; font-size: 14px; font-weight: 500; }
 
-    /* --- CTA FINAL (ESTILO VERSÃO 1) --- */
+    /* --- CTA FINAL --- */
     .contact-cta {
         margin: 100px 0;
         padding: 60px 20px;
@@ -248,7 +247,7 @@
 <main class="section-container">
     
     <section id="portfolio">
-        <h2 class="section-title">Portfólio Recente</h2>
+        <h2 class="section-title">Portfólio</h2>
         <div class="portfolio-grid">
             
             <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=iVUg9DgaRNa7r2xiZwE4VA" class="portfolio-card" target="_blank">
