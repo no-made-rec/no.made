@@ -104,25 +104,58 @@
         margin: auto;
     }
 
+    /* --- AJUSTE DOS TÍTULOS E CARROSSEL --- */
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
     h2.section-title {
         font-size: 20px;
-        margin-bottom: 40px;
+        margin: 0;
         border-left: 4px solid var(--accent);
         padding-left: 15px;
         letter-spacing: 1px;
     }
 
-    /* --- ALTERAÇÃO SOLICITADA: CARROSSEL SEM MUDAR PROPORÇÕES --- */
+    .carousel-controls {
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-btn:hover {
+        background: var(--accent);
+        color: black;
+        border-color: var(--accent);
+    }
+
     .portfolio-grid, .free-beats-grid {
-        display: flex; /* Mudado de grid para flex para o carrossel */
+        display: flex;
         gap: 20px;
         margin-bottom: 80px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+        padding: 10px 0; /* Espaço para o hover não cortar */
     }
 
-    /* Esconde barra de scroll no Chrome/Safari/Edge */
     .portfolio-grid::-webkit-scrollbar, .free-beats-grid::-webkit-scrollbar {
         display: none;
     }
@@ -137,15 +170,13 @@
         text-decoration: none;
         color: inherit;
         display: block;
-        /* Garante que o card mantenha a largura original no carrossel */
-        flex: 0 0 220px; 
+        flex: 0 0 220px; /* Largura fixa para portfólio */
         scroll-snap-align: start;
     }
 
     .free-beats-section .portfolio-card {
-        flex: 0 0 300px; /* Largura original dos seus beats */
+        flex: 0 0 320px; /* Largura fixa para beats */
     }
-    /* --- FIM DA ALTERAÇÃO --- */
 
     .portfolio-card:hover {
         transform: translateY(-8px);
@@ -228,9 +259,7 @@
     }
 
     .methodical-bg { background-position: bottom !important; }
-
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
-    
     .product-overlay {
         position: absolute;
         inset: 0;
@@ -279,6 +308,7 @@
 
     @media (max-width: 768px) {
         .nav-links { display: none; }
+        .carousel-controls { display: none; } /* Oculta setas no mobile (usa o dedo) */
     }
 </style>
 </head>
@@ -309,12 +339,16 @@
     <main class="section-container">
         
         <section id="free-beats" class="free-beats-section">
-            <h2 class="section-title">BEATS RECENTES</h2>
-            <div class="free-beats-grid">
+            <div class="section-header">
+                <h2 class="section-title">BEATS RECENTES</h2>
+                <div class="carousel-controls">
+                    <button class="nav-btn" onclick="scrollCarousel('beats-grid', -340)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn" onclick="scrollCarousel('beats-grid', 340)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="free-beats-grid" id="beats-grid">
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
-                    </div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -323,9 +357,7 @@
                     </div>
                 </a>
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
-                    </div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -334,9 +366,7 @@
                     </div>
                 </a>
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
-                    </div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -345,9 +375,7 @@
                     </div>
                 </a>
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
-                    </div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -356,9 +384,7 @@
                     </div>
                 </a>
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
-                    </div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -367,9 +393,7 @@
                     </div>
                 </a>
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
-                    </div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -381,8 +405,14 @@
         </section>
 
         <section id="portfolio">
-            <h2 class="section-title">PORTIFÓLIO</h2>
-            <div class="portfolio-grid">
+            <div class="section-header">
+                <h2 class="section-title">PORTIFÓLIO</h2>
+                <div class="carousel-controls">
+                    <button class="nav-btn" onclick="scrollCarousel('port-grid', -240)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn" onclick="scrollCarousel('port-grid', 240)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="portfolio-grid" id="port-grid">
                 <a href="URL_LINK_CDG" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
                     <div class="card-info">
@@ -401,83 +431,11 @@
                 </a>
                 <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
                     <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
+                    <div class="card-info"><span class="card-title">BH É SEU MUNDO</span><span class="card-artist">lavick</span><span class="card-role">PRODUÇÃO</span></div>
                 </a>
                 <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
                     <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
+                    <div class="card-info"><span class="card-title">BH É SEU MUNDO</span><span class="card-artist">lavick</span><span class="card-role">PRODUÇÃO</span></div>
                 </a>
             </div>
         </section>
@@ -530,6 +488,13 @@
         © 2026 NÔMADE RECORD'S.
     </footer>
 </div>
+
+<script>
+    function scrollCarousel(id, amount) {
+        const container = document.getElementById(id);
+        container.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
