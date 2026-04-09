@@ -13,9 +13,9 @@
         --card-bg: rgba(0, 0, 0, 0.85);
         --price-old: #ff4d4d;
         --price-new: #2ecc71;
-        /* VARIÁVEIS DE SIMETRIA */
-        --section-spacing: 50px; /* Distância entre uma seção e outra */
-        --title-margin: 25px;    /* Distância entre o título e o conteúdo */
+        /* PADRÃO DE SIMETRIA */
+        --section-spacing: 100px; 
+        --title-margin: 35px;    
     }
 
     * { box-sizing: border-box; }
@@ -107,18 +107,16 @@
         margin: auto;
     }
 
-    /* PADRONIZAÇÃO DE SEÇÕES (SIMETRIA) */
+    /* SIMETRIA DAS SEÇÕES */
     section {
         margin-bottom: var(--section-spacing);
-        display: block;
-        width: 100%;
     }
 
     .section-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: var(--title-margin); /* Espaço igual para todos os títulos */
+        margin-bottom: var(--title-margin);
     }
 
     h2.section-title {
@@ -129,7 +127,6 @@
         letter-spacing: 1px;
     }
 
-    /* CONTROLES DO CARROSSEL */
     .carousel-controls {
         display: flex;
         gap: 10px;
@@ -149,12 +146,9 @@
         justify-content: center;
     }
 
-    .nav-btn:hover {
-        background: var(--accent);
-        color: black;
-    }
+    .nav-btn:hover { background: var(--accent); color: black; border-color: var(--accent); }
 
-    /* GRIDS / CARROSSEIS */
+    /* GRIDS E CARROSSEIS */
     .portfolio-grid, .free-beats-grid {
         display: flex;
         gap: 20px;
@@ -163,7 +157,6 @@
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         padding: 10px 0;
-        margin: 0; /* Removido margem daqui para usar a da section */
     }
 
     .portfolio-grid::-webkit-scrollbar, .free-beats-grid::-webkit-scrollbar {
@@ -191,33 +184,22 @@
     .portfolio-card:hover {
         transform: translateY(-8px);
         border-color: var(--accent);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
-    .img-container {
-        width: 100%;
-        overflow: hidden;
-        display: block;
-        position: relative;
-    }
-
-    .card-img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        transition: 0.5s ease;
-    }
-
+    .img-container { width: 100%; overflow: hidden; position: relative; }
+    .card-img { width: 100%; height: 100%; display: block; object-fit: cover; transition: 0.5s ease; }
     .square { aspect-ratio: 1/1; }
     .wide { aspect-ratio: 16/9; transform: scale(1.8); }
 
-    .card-info {
-        padding: 18px;
-        background: var(--card-bg);
-    }
+    /* INFO CARDS */
+    .card-info { padding: 18px; background: var(--card-bg); }
+    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
+    .card-artist { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
+    .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
+    .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
 
-    .portfolio-card .card-info.overlay {
+    /* OVERLAY DO PORTFOLIO */
+    .portfolio-section .card-info {
         position: absolute;
         inset: 0;
         display: flex;
@@ -225,21 +207,18 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        background: rgba(0, 0, 0, 0.75);
         opacity: 0;
         transition: 0.4s ease;
         z-index: 2;
     }
 
-    .portfolio-card:hover .card-info.overlay {
+    .portfolio-section .portfolio-card:hover .card-info {
         opacity: 1;
         backdrop-filter: blur(8px);
     }
 
-    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
-    .card-artist { color: var(--accent); font-size: 13px; display: block; }
-    .card-role { font-size: 11px; color: #777; letter-spacing: 1px; text-transform: uppercase; }
-
-    /* PRODUTOS GRID */
+    /* SHOP GRID */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -262,6 +241,7 @@
         border: 1px solid rgba(255,255,255,0.1);
     }
 
+    .methodical-bg { background-position: bottom !important; }
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
     .product-overlay {
         position: absolute;
@@ -270,7 +250,7 @@
     }
 
     .product-content { position: relative; z-index: 1; }
-    .price-tag { font-weight: 800; font-size: 18px; margin-top: 10px; }
+    .price-tag { font-weight: 800; font-size: 18px; }
     .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; font-size: 14px; }
     .new-price { color: var(--price-new); }
 
@@ -291,17 +271,12 @@
         text-decoration: none;
         border-radius: 18px;
         font-weight: 800;
-        transition: 0.3s ease;
         margin-top: 30px;
+        transition: 0.3s;
     }
     .btn-v1:hover { background: var(--accent); color: #000; box-shadow: 0 0 40px rgba(101,193,251,0.5); }
 
-    footer {
-        text-align: center; 
-        padding: 80px 20px; 
-        opacity: 0.3; 
-        font-size: 10px; 
-    }
+    footer { text-align: center; padding: 80px 20px; opacity: 0.3; font-size: 10px; }
 
     @media (max-width: 768px) {
         .nav-links, .carousel-controls { display: none; }
@@ -325,8 +300,8 @@
     <h1>Nômade Record's</h1>
     <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px;">Produtora Independente de BH</p>
     <div class="social-hero">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 </header>
 
@@ -342,24 +317,24 @@
                 </div>
             </div>
             <div class="free-beats-grid" id="beats-grid">
-                <a href="#" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                    </div>
-                </a>
-                <a href="#" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                    </div>
-                </a>
+                <script>
+                    for(let i=0; i<6; i++) {
+                        document.write(`
+                        <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                            <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
+                            <div class="card-info">
+                                <span class="card-title">Always</span>
+                                <span class="card-artist">Free for Non Profit</span>
+                                <span class="card-tech">125 BPM | Em</span> 
+                                <span class="card-role">Type Beat</span>
+                            </div>
+                        </a>`);
+                    }
+                </script>
             </div>
         </section>
 
-        <section id="portfolio">
+        <section id="portfolio" class="portfolio-section">
             <div class="section-header">
                 <h2 class="section-title">PORTIFÓLIO</h2>
                 <div class="carousel-controls">
@@ -370,20 +345,25 @@
             <div class="portfolio-grid" id="port-grid">
                 <a href="#" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
-                    <div class="card-info overlay">
+                    <div class="card-info">
                         <span class="card-title">CDG</span>
                         <span class="card-artist">ALV</span>
                         <span class="card-role">MIX/MASTER</span>
                     </div>
                 </a>
-                <a href="#" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info overlay">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO</span>
-                    </div>
-                </a>
+                <script>
+                    for(let i=0; i<11; i++) {
+                        document.write(`
+                        <a href="#" class="portfolio-card" target="_blank">
+                            <img src="coverart/bheseumundo.jpg" class="card-img square">
+                            <div class="card-info">
+                                <span class="card-title">BH É SEU MUNDO</span>
+                                <span class="card-artist">lavick</span>
+                                <span class="card-role">PRODUÇÃO</span>
+                            </div>
+                        </a>`);
+                    }
+                </script>
             </div>
         </section>
 
@@ -392,18 +372,25 @@
                 <h2 class="section-title">PRODUTOS</h2>
             </div>
             <div class="shop-grid">
-                <a href="#" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');">
+                <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>SUPERPACK DE BEATS</h3>
-                        <div class="price-tag"><span class="old-price">R$ 199</span> <span class="new-price">R$ 95</span></div>
+                        <div class="price-tag"><span class="old-price">R$ 199,99</span><span class="new-price">R$ 95</span></div>
                     </div>
                 </a>
-                <a href="#" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');">
+                <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
-                        <h3>LUMUS SAMPLE PACK</h3>
-                        <div class="price-tag"><span class="new-price">R$ 25</span></div>
+                        <h3>Lumus Sample Pack</h3>
+                        <div class="price-tag"><span class="old-price">R$ 49,99</span><span class="new-price">R$ 25</span></div>
+                    </div>
+                </a>
+                <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>methodical. loop pack</h3>
+                        <div class="price-tag"><span class="old-price">R$ 79,99</span><span class="new-price">R$ 45</span></div>
                     </div>
                 </a>
             </div>
@@ -413,7 +400,7 @@
             <div class="contact-cta">
                 <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
                 <p style="opacity: 0.8;">Desenvolvemos sua sonoridade do zero</p>
-                <a href="#" class="btn-v1">SOLICITAR ORÇAMENTO</a>
+                <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO</a>
             </div>
         </section>
 
