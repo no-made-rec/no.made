@@ -176,7 +176,9 @@
 
     .card-info { padding: 18px; background: var(--card-bg); }
     .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
-    .card-artist { color: var(--accent); font-size: 13px; display: block; }
+    
+    /* Descrição dos Beats Menor */
+    .card-artist { color: var(--accent); font-size: 12px; display: block; opacity: 0.9; }
 
     #portfolio .card-info {
         position: absolute;
@@ -194,7 +196,7 @@
 
     #portfolio .portfolio-card:hover .card-info { opacity: 1; backdrop-filter: blur(8px); }
 
-    /* PRODUTOS - TEXTO NO TOPO E CORES */
+    /* PRODUTOS */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -219,10 +221,13 @@
         border: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* Fix do Methodical Position */
+    .methodical-bg { background-position: bottom !important; }
+
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
     .product-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%); }
     .product-content { position: relative; z-index: 1; width: 100%; }
-    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; text-transform: uppercase; }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; }
 
     .price-tag { font-weight: 800; font-size: 18px; margin-top: 5px; }
     .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; opacity: 0.8; font-size: 14px; }
@@ -237,7 +242,7 @@
         border: 2px solid rgba(101,193,251,0.1);
         background: linear-gradient(145deg, #0a0a0a, #111);
     }
-    .contact-cta h2 { color: var(--accent); margin-bottom: 10px; font-size: 28px; }
+    .contact-cta h2 { color: var(--accent); margin-bottom: 10px; font-size: 28px; border: none; padding: 0; }
 
     .btn-v1 {
         display: inline-block;
@@ -263,7 +268,7 @@
 <nav>
     <div class="logo"><strong>NO.MADE</strong></div>
     <div class="nav-links">
-        <a href="#free-beats">Beats</a>
+        <a href="#free-beats">Beats Recentes</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#shop">Produtos</a>
         <a href="#contato">Contato</a>
@@ -273,9 +278,11 @@
 <header class="hero">
     <img src="img/logo.png" alt="Logo Nômade" class="hero-logo">
     <h1>Nômade Record's</h1>
+    <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px;">Produtora Independente de BH</p>
     <div class="social-hero">
         <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:nomaderecordseba@gmail.com"><i class="far fa-envelope"></i></a>
     </div>
 </header>
 
@@ -292,12 +299,8 @@
             </div>
             <div class="free-beats-grid" id="beats-grid">
                 <a href="URL_AQUI" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Nome do Beat</span><span class="card-artist">Free for Non Profit</span></div>
-                </a>
-                <a href="URL_AQUI" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Nome do Beat</span><span class="card-artist">Free for Non Profit</span></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/ID_VIDEO/maxresdefault.jpg" class="card-img wide"></div>
+                    <div class="card-info"><span class="card-title">Título do Beat</span><span class="card-artist">Free for Non Profit</span></div>
                 </a>
                 </div>
         </section>
@@ -313,11 +316,11 @@
             <div class="portfolio-grid" id="port-grid">
                 <a href="URL_SPOTIFY" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
-                    <div class="card-info"><span class="card-title">CDG</span><span class="card-artist">ALV</span><span class="card-role">MIX/MASTER</span></div>
-                </a>
-                <a href="URL_SPOTIFY" class="portfolio-card" target="_blank">
-                    <img src="coverart/NOME_DA_CAPA.jpg" class="card-img square">
-                    <div class="card-info"><span class="card-title">NOME DA MUSICA</span><span class="card-artist">ARTISTA</span><span class="card-role">PRODUÇÃO</span></div>
+                    <div class="card-info">
+                        <span class="card-title">CDG</span>
+                        <span class="card-artist">ALV</span>
+                        <span class="card-role">Mix/Master</span>
+                    </div>
                 </a>
                 </div>
         </section>
@@ -329,21 +332,21 @@
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>SUPERPACK DE BEATS</h3>
-                        <div class="price-tag"><span class="old-price">R$ 199,99</span><span class="new-price">R$ 95</span></div>
+                        <div class="price-tag"><span class="old-price">R$ 199,99</span> <span class="new-price">R$ 95</span></div>
                     </div>
                 </a>
                 <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>Lumus Sample Pack</h3>
-                        <div class="price-tag"><span class="old-price">R$ 49,99</span><span class="new-price">R$ 25</span></div>
+                        <div class="price-tag"><span class="old-price">R$ 49,99</span> <span class="new-price">R$ 25</span></div>
                     </div>
                 </a>
                 <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>methodical. loop pack</h3>
-                        <div class="price-tag"><span class="old-price">R$ 79,99</span><span class="new-price">R$ 45</span></div>
+                        <div class="price-tag"><span class="old-price">R$ 79,99</span> <span class="new-price">R$ 45</span></div>
                     </div>
                 </a>
             </div>
