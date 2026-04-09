@@ -191,7 +191,6 @@
     .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
     .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
 
-    /* LOJA - TEXTO NO TOPO E RESPEITANDO CASE */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -204,7 +203,7 @@
         border-radius: 20px;
         overflow: hidden;
         display: flex;
-        align-items: flex-start; /* Fixado no topo */
+        align-items: flex-start; 
         padding: 30px;
         text-decoration: none;
         color: white;
@@ -215,8 +214,6 @@
     }
 
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
-    .methodical-bg { background-position: bottom !important; }
-    
     .product-overlay {
         position: absolute;
         inset: 0;
@@ -224,15 +221,50 @@
     }
 
     .product-content { position: relative; z-index: 1; }
-    .product-content h3 { 
-        margin: 0 0 8px 0; 
-        font-size: 20px; 
-        text-transform: none; /* Respeita como foi escrito */
-        letter-spacing: 0.5px;
-    }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; text-transform: none; letter-spacing: 0.5px;}
     .price-tag { font-weight: 800; font-size: 18px; }
     .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; opacity: 0.8; font-size: 14px; }
     .new-price { color: var(--price-new); }
+
+    /* --- MAP SECTION --- */
+    .map-section {
+        margin-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 400px;
+        border-radius: 25px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.1);
+        filter: grayscale(1) invert(0.9) contrast(1.2); /* Efeito Dark Mode no Mapa */
+    }
+
+    .location-info {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    .location-info p {
+        opacity: 0.6;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .btn-maps {
+        display: inline-block;
+        margin-top: 15px;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        border-bottom: 1px solid var(--accent);
+        padding-bottom: 2px;
+        transition: 0.3s;
+    }
+
+    .btn-maps:hover { opacity: 0.7; letter-spacing: 2px; }
 
     .contact-cta {
         margin: 100px 0 0;
@@ -291,9 +323,9 @@
     <h1>Nômade Record's</h1>
     <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px; margin-top: 10px; font-weight: 500;">Produtora Independente de BH</p>
     <div class="social-hero">
-        <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/nomade.records" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:nomaderecordeba@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="mailto:contato@nomaderecords.com"><i class="far fa-envelope"></i></a>
     </div>
 </header>
 
@@ -301,17 +333,17 @@
     <main class="section-container">
         
         <section id="free-beats" class="free-beats-section">
-            <h2 class="section-title">BEATS FREE</h2>
+            <h2 class="section-title">BEATS FREE RECENTES</h2>
             <div class="free-beats-grid">
-                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                <a href="https://youtu.be/ID_DO_VIDEO" class="portfolio-card" target="_blank">
                     <div class="img-container">
-                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
+                        <img src="https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg" class="card-img wide">
                     </div>
                     <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                        <span class="card-title">NOME DO BEAT FREE</span>
+                        <span class="card-artist">Free for Profit</span>
+                        <span class="card-tech">140 BPM | G#m</span> 
+                        <span class="card-role">Trap / Dark</span>
                     </div>
                 </a>
             </div>
@@ -320,7 +352,7 @@
         <section id="portfolio">
             <h2 class="section-title">PORTIFÓLIO</h2>
             <div class="portfolio-grid">
-                <a href="https://open.spotify.com/intl-pt/track/11UA7o3lu4JE7RzWy8wdCM?si=ff128dd9f17846cd" class="portfolio-card" target="_blank">
+                <a href="URL_1" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">CDG</span>
@@ -328,7 +360,7 @@
                         <span class="card-role">MIX/MASTER</span>
                     </div>
                 </a>
-                <a href="https://open.spotify.com/intl-pt/track/0YLqIurcRPYRevuDV1AsSh?si=7054dec4419f44a2" class="portfolio-card" target="_blank">
+                <a href="URL_2" class="portfolio-card" target="_blank">
                     <img src="coverart/bheseumundo.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">BH É SEU MUNDO</span>
@@ -375,6 +407,20 @@
             </div>
         </section>
 
+        <section id="location" class="map-section">
+            <h2 class="section-title">COMO CHEGAR?</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15001.373264426535!2d-43.9478479!3d-19.9208906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU1JzE1LjIiUyA0M8KwNTYnNTEuMiJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <div class="location-info">
+                <p>Belo Horizonte - MG | Atendimento com horário marcado</p>
+                <a href="https://maps.app.goo.gl/Sh2arTg92fLjGrwG9" target="_blank" class="btn-maps">ABRIR NO GOOGLE MAPS <i class="fas fa-external-link-alt" style="font-size: 10px; margin-left: 5px;"></i></a>
+            </div>
+        </section>
+
         <section id="contato" class="contact-cta">
             <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
             <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">Desenvolvemos sua sonoridade do zero com exclusividade total</p>
@@ -384,7 +430,7 @@
     </main>
 
     <footer>
-        © 2026 NÔMADE RECORD'S.
+        © 2026 NÔMADE RECORD'S. TODOS OS DIREITOS RESERVADOS.
     </footer>
 </div>
 
