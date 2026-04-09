@@ -138,46 +138,37 @@
         box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
+    /* CONTAINER DA IMAGEM PARA CONTROLAR O ZOOM */
+    .img-container {
+        width: 100%;
+        overflow: hidden; /* Corta o excesso do zoom */
+        display: block;
+    }
+
     .card-img {
         width: 100%;
+        display: block;
         object-fit: cover;
-        display: block;
+        transition: 0.4s;
     }
 
+    /* PROPORÇÕES */
     .square { aspect-ratio: 1/1; }
-    .wide { aspect-ratio: 16/9; }
-
-    .card-info { padding: 18px; }
-
-    .card-title {
-        font-weight: bold;
-        display: block;
-        font-size: 16px;
-        margin-bottom: 4px;
+    
+    /* WIDE COM ZOOM: Transforma a capa 1:1 do YT em 16:9 sem as bordas pretas */
+    .wide { 
+        aspect-ratio: 16/9; 
+        transform: scale(1.3); /* Dá o zoom necessário para sumir as bordas laterais do YT */
     }
 
-    .card-artist {
-        color: var(--accent);
-        font-size: 13px;
-        display: block;
-        margin-bottom: 4px;
-    }
+    .card-info { padding: 18px; position: relative; z-index: 2; background: var(--card-bg); }
 
-    /* Estilo técnico apenas para os Beats Free */
-    .card-tech {
-        font-size: 11px;
-        color: #bbb;
-        display: block;
-        margin-bottom: 8px;
-        font-family: monospace;
-    }
+    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
+    .card-artist { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
+    .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
+    .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
 
-    .card-role {
-        font-size: 11px;
-        color: #777;
-        letter-spacing: 1px;
-    }
-
+    /* SHOP SECTION */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -271,9 +262,9 @@
     <h1>Nômade Record's</h1>
     <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px; margin-top: 10px; font-weight: 500;">Produtora Independente de BH</p>
     <div class="social-hero">
-        <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/nomade.records" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:nomaderecordseba@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="mailto:contato@nomaderecords.com"><i class="far fa-envelope"></i></a>
     </div>
 </header>
 
@@ -281,10 +272,12 @@
     <main class="section-container">
         
         <section id="free-beats">
-            <h2 class="section-title">BEATS RECENTES</h2>
+            <h2 class="section-title">BEATS FREE</h2>
             <div class="free-beats-grid">
-                <a href="https://www.youtube.com/watch?v=4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
+                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                    <div class="img-container">
+                        <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
+                    </div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -298,7 +291,7 @@
         <section id="portfolio">
             <h2 class="section-title">PORTIFÓLIO</h2>
             <div class="portfolio-grid">
-                <a href="URL_1" class="portfolio-card" target="_blank">
+                <a href="https://open.spotify.com/intl-pt/track/11UA7o3lu4JE7RzWy8wdCM?si=ff128dd9f17846cd" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">CDG</span>
@@ -306,65 +299,9 @@
                         <span class="card-role">MIX/MASTER</span>
                     </div>
                 </a>
-                <a href="URL_2" class="portfolio-card" target="_blank">
+                <a href="https://open.spotify.com/intl-pt/track/0YLqIurcRPYRevuDV1AsSh?si=7054dec4419f44a2" class="portfolio-card" target="_blank">
                     <img src="coverart/bheseumundo.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">BH É SEU MUNDO</span>
                         <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section id="shop">
-            <h2 class="section-title">PRODUTOS E PACKS</h2>
-            <div class="shop-grid">
-                <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
-                    <div class="product-overlay"></div>
-                    <div class="product-content">
-                        <h3>SUPERPACK DE BEATS</h3>
-                        <div class="price-tag">
-                            <span class="old-price">De R$ 199,99</span>
-                            <span class="new-price">Por R$ 95</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
-                    <div class="product-overlay"></div>
-                    <div class="product-content">
-                        <h3>Lumus Sample Pack</h3>
-                        <div class="price-tag">
-                            <span class="old-price">De R$ 49,99</span>
-                            <span class="new-price">R$ 25</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
-                    <div class="product-overlay"></div>
-                    <div class="product-content">
-                        <h3>methodical. loop pack</h3>
-                        <div class="price-tag">
-                            <span class="old-price">De R$ 79,99</span>
-                            <span class="new-price">R$ 45</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section id="contato" class="contact-cta">
-            <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
-            <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">Desenvolvemos sua sonoridade do zero com exclusividade total</p>
-            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO PERSONALIZADO</a>
-        </section>
-
-    </main>
-
-    <footer>
-        © 2026 NÔMADE RECORD'S.
-    </footer>
-</div>
-
-</body>
-</html>
+                        <span class="card
