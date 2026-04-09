@@ -48,14 +48,19 @@
     .nav-links a:hover { opacity: 1; color: var(--accent); }
 
     /* O degradê azul agora vive apenas aqui dentro do HERO */
+    /* O degradê azul e o banner agora vivem aqui */
     .hero {
-        height: 55vh;
+        height: 65vh; /* Aumentei um pouco para o banner aparecer mais */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--dark-bg)), 
-                    var(--bg-gradient); /* Azul aqui */
+        /* Camada 1: Degradê preto para sumir no final */
+        /* Camada 2: Degradê azul (filtro) */
+        /* Camada 3: A sua imagem de banner */
+        background: linear-gradient(to bottom, transparent 0%, var(--dark-bg) 100%), 
+                    linear-gradient(135deg, rgba(0, 124, 240, 0.7) 0%, rgba(0, 223, 216, 0.7) 100%),
+                    url('img/banner-bg.jpg') center/cover no-repeat;
         text-align: center;
         padding: 0 20px;
         position: relative;
