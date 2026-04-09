@@ -121,7 +121,6 @@
     .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
     .free-beats-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 
-    /* EFEITO PREMIUM NO PORTFÓLIO */
     .portfolio-card {
         background: var(--card-bg);
         border-radius: 12px;
@@ -132,6 +131,12 @@
         text-decoration: none;
         color: inherit;
         display: block;
+    }
+
+    .portfolio-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
     .img-container {
@@ -150,9 +155,9 @@
     }
 
     .square { aspect-ratio: 1/1; }
-    .wide { aspect-ratio: 16/9; transform: scale(1.8); } /* Mantendo a correção pros beats free */
+    .wide { aspect-ratio: 16/9; transform: scale(1.8); }
 
-    /* OCULTAR INFO DO PORTFÓLIO INICIALMENTE */
+    /* INFO HOVER PORTFOLIO */
     .portfolio-card .card-info {
         position: absolute;
         inset: 0;
@@ -162,29 +167,25 @@
         align-items: center;
         text-align: center;
         padding: 20px;
-        background: rgba(0, 0, 0, 0.7);
-        opacity: 0; /* Invisível */
+        background: rgba(0, 0, 0, 0.75);
+        opacity: 0;
         transition: 0.4s ease;
         z-index: 2;
-        backdrop-filter: blur(0px); /* Começa sem blur */
     }
 
-    /* ESTADO HOVER DO PORTFÓLIO */
     .portfolio-card:hover .card-info {
-        opacity: 1; /* Aparece */
-        backdrop-filter: blur(8px); /* Aplica o blur na camada de cima */
+        opacity: 1;
+        backdrop-filter: blur(8px);
     }
 
-    .portfolio-card:hover .card-img.square {
-        transform: scale(1.1); /* Leve zoom na imagem de fundo */
-    }
+    .portfolio-card:hover .card-img.square { transform: scale(1.1); }
 
-    /* Manter Beats Free sempre visíveis para facilitar a navegação rápida */
+    /* FREE BEATS INFO (SEMPRE VISÍVEL) */
     .free-beats-section .card-info {
         position: relative;
         opacity: 1;
         background: var(--card-bg);
-        backdrop-filter: none;
+        padding: 18px;
     }
 
     .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
@@ -192,7 +193,7 @@
     .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
     .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
 
-    /* SHOP GRID */
+    /* SHOP GRID - AJUSTADO PARA SER MAIS RETANGULAR */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -201,11 +202,11 @@
 
     .product-banner {
         position: relative;
-        height: 320px;
+        height: 220px; /* Reduzi aqui de 320px para 220px */
         border-radius: 20px;
         overflow: hidden;
         display: flex;
-        align-items: flex-start;
+        align-items: center; /* Centraliza conteúdo verticalmente */
         padding: 30px;
         text-decoration: none;
         color: white;
@@ -217,17 +218,18 @@
 
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
     .methodical-bg { background-position: bottom !important; }
+    
     .product-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+        background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
     }
 
     .product-content { position: relative; z-index: 1; }
-    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; }
-    .price-tag { font-weight: 800; font-size: 16px; }
-    .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; opacity: 0.8; }
-    .new-price { color: var(--price-new); }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 22px; text-transform: uppercase; letter-spacing: 1px; }
+    .price-tag { font-weight: 800; font-size: 18px; }
+    .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; opacity: 0.8; font-size: 14px; }
+    .new-price { color: var(--price-new); text-shadow: 0 0 10px rgba(46, 204, 113, 0.2); }
 
     .contact-cta {
         margin: 100px 0 0;
@@ -296,7 +298,7 @@
     <main class="section-container">
         
         <section id="free-beats" class="free-beats-section">
-            <h2 class="section-title">BEATS FREE RECENTES</h2>
+            <h2 class="section-title">BEATS FREE</h2>
             <div class="free-beats-grid">
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
                     <div class="img-container">
@@ -379,7 +381,7 @@
     </main>
 
     <footer>
-        © 2026 NÔMADE RECORD'S. TODOS OS DIREITOS RESERVADOS.
+        © 2026 NÔMADE RECORD'S.
     </footer>
 </div>
 
