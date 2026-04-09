@@ -7,7 +7,7 @@
 <style>
     :root {
         --accent: #65c1fb;
-        --bg-gradient: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%); /* Baseado no seu print azul */
+        --bg-gradient: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%);
         --dark-bg: #050505;
         --card-bg: rgba(0, 0, 0, 0.85);
         --price-old: #ff4d4d;
@@ -25,7 +25,6 @@
         overflow-x: hidden;
     }
 
-    /* --- NAVIGATION --- */
     nav {
         display: flex;
         justify-content: space-between;
@@ -48,7 +47,6 @@
     
     .nav-links a:hover { opacity: 1; color: var(--dark-bg); }
 
-    /* --- HERO SECTION --- */
     .hero {
         height: 55vh;
         display: flex;
@@ -73,9 +71,8 @@
         letter-spacing: -1px;
     }
 
-    /* --- GRID SISTEMA --- */
     .section-container {
-        background-color: var(--dark-bg); /* O conteúdo principal fica no fundo preto */
+        background-color: var(--dark-bg);
         padding: 60px 5%;
         max-width: 100%;
         margin: auto;
@@ -94,7 +91,6 @@
         letter-spacing: 1px;
     }
 
-    /* --- PORTFOLIO GRID --- */
     .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -147,7 +143,6 @@
         letter-spacing: 1px;
     }
 
-    /* --- SHOP SECTION (TEXTO NO TOPO COM PREÇOS) --- */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -208,7 +203,6 @@
         text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
     }
 
-    /* --- CTA FINAL --- */
     .contact-cta {
         margin: 100px 0;
         padding: 80px 20px;
@@ -216,8 +210,9 @@
         border-radius: 40px;
         border: 2px solid rgba(101,193,251,0.1);
         background: linear-gradient(145deg, #0a0a0a, #111);
-        h2 {color: #65c1fb;margin-bottom: 10px;
     }
+
+    .contact-cta h2 { color: #65c1fb; margin-bottom: 10px; }
 
     .btn-v1 {
         display: inline-block;
@@ -238,6 +233,16 @@
         color: #000;
         box-shadow: 0 0 40px rgba(101,193,251,0.5);
         transform: scale(1.05);
+    }
+
+    footer {
+        text-align: center; 
+        padding: 60px 20px; 
+        opacity: 0.3; 
+        font-size: 10px; 
+        letter-spacing: 2px;
+        background-color: var(--dark-bg); /* Garante que o fundo seja preto */
+        margin: 0;
     }
 
     @media (max-width: 768px) {
@@ -315,7 +320,7 @@
                     <div class="product-content">
                         <h3>Lumus Sample Pack</h3>
                         <div class="price-tag">
-                              <span class="old-price">De R$ 49,99</span>
+                            <span class="old-price">De R$ 49,99</span>
                             <span class="new-price">R$ 25</span>
                         </div>
                     </div>
@@ -326,7 +331,7 @@
                     <div class="product-content">
                         <h3>methodical. loop pack</h3>
                         <div class="price-tag">
-                              <span class="old-price">De R$ 79,99</span>
+                            <span class="old-price">De R$ 79,99</span>
                             <span class="new-price">R$ 45</span>
                         </div>
                     </div>
@@ -346,8 +351,8 @@
     </div>
 </main>
 
-<footer style="text-align: center; padding: 60px 20px; opacity: 0.3; font-size: 10px; letter-spacing: 2px;">
-    © 2026 NÔMADE RECORD'S.
+<footer>
+    © 2026 NÔMADE RECORD'S. TODOS OS DIREITOS RESERVADOS.
 </footer>
 
 </body>
