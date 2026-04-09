@@ -175,10 +175,12 @@
     .wide { aspect-ratio: 16/9; transform: scale(1.8); }
 
     .card-info { padding: 18px; background: var(--card-bg); }
-    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
     
-    /* Descrição dos Beats Menor */
-    .card-artist { color: var(--accent); font-size: 12px; display: block; opacity: 0.9; }
+    /* Ajuste das 4 linhas de texto nos Beats */
+    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
+    .card-artist { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
+    .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
+    .card-role { font-size: 11px; color: #777; letter-spacing: 1px; display: block; }
 
     #portfolio .card-info {
         position: absolute;
@@ -221,7 +223,6 @@
         border: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Fix do Methodical Position */
     .methodical-bg { background-position: bottom !important; }
 
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
@@ -298,9 +299,10 @@
                 </div>
             </div>
             <div class="free-beats-grid" id="beats-grid">
-                <a href="URL_AQUI" class="portfolio-card" target="_blank">
+                <a href="URL_YOUTUBE" class="portfolio-card" target="_blank">
                     <div class="img-container"><img src="https://img.youtube.com/vi/ID_VIDEO/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info"><span class="card-title">Título do Beat</span><span class="card-artist">Free for Non Profit</span></div>
+                    <div class="card-info">
+                        <span class="card-title">Always</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">125 BPM | Em</span> <span class="card-role">Duzz x Dudu x Jotapê Type Beat</span> </div>
                 </a>
                 </div>
         </section>
