@@ -121,10 +121,12 @@
     .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
     .free-beats-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 
+    /* EFEITO PREMIUM NO PORTFÓLIO */
     .portfolio-card {
         background: var(--card-bg);
         border-radius: 12px;
         overflow: hidden;
+        position: relative;
         transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         border: 1px solid rgba(255,255,255,0.05);
         text-decoration: none;
@@ -132,21 +134,11 @@
         display: block;
     }
 
-    .portfolio-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--accent);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    }
-
-    /* CONTAINER PARA O ZOOM DAS THUMBS DO YT */
     .img-container {
         width: 100%;
-        aspect-ratio: 16/9;
         overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #000;
+        display: block;
+        position: relative;
     }
 
     .card-img {
@@ -154,16 +146,46 @@
         height: 100%;
         display: block;
         object-fit: cover;
+        transition: 0.5s ease;
     }
 
     .square { aspect-ratio: 1/1; }
+    .wide { aspect-ratio: 16/9; transform: scale(1.8); } /* Mantendo a correção pros beats free */
 
-    /* SCALE 1.8 PARA MATAR AS BORDAS PRETAS LATERAIS */
-    .wide { 
-        transform: scale(1.8); 
+    /* OCULTAR INFO DO PORTFÓLIO INICIALMENTE */
+    .portfolio-card .card-info {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0; /* Invisível */
+        transition: 0.4s ease;
+        z-index: 2;
+        backdrop-filter: blur(0px); /* Começa sem blur */
     }
 
-    .card-info { padding: 18px; position: relative; z-index: 2; background: var(--card-bg); }
+    /* ESTADO HOVER DO PORTFÓLIO */
+    .portfolio-card:hover .card-info {
+        opacity: 1; /* Aparece */
+        backdrop-filter: blur(8px); /* Aplica o blur na camada de cima */
+    }
+
+    .portfolio-card:hover .card-img.square {
+        transform: scale(1.1); /* Leve zoom na imagem de fundo */
+    }
+
+    /* Manter Beats Free sempre visíveis para facilitar a navegação rápida */
+    .free-beats-section .card-info {
+        position: relative;
+        opacity: 1;
+        background: var(--card-bg);
+        backdrop-filter: none;
+    }
 
     .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
     .card-artist { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
@@ -273,7 +295,7 @@
 <div class="black-stack">
     <main class="section-container">
         
-        <section id="free-beats">
+        <section id="free-beats" class="free-beats-section">
             <h2 class="section-title">BEATS FREE RECENTES</h2>
             <div class="free-beats-grid">
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
