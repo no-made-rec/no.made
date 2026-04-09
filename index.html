@@ -104,7 +104,6 @@
         margin: auto;
     }
 
-    /* --- AJUSTE DOS TÍTULOS E CARROSSEL --- */
     .section-header {
         display: flex;
         justify-content: space-between;
@@ -153,7 +152,7 @@
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        padding: 10px 0; /* Espaço para o hover não cortar */
+        padding: 10px 0;
     }
 
     .portfolio-grid::-webkit-scrollbar, .free-beats-grid::-webkit-scrollbar {
@@ -170,12 +169,12 @@
         text-decoration: none;
         color: inherit;
         display: block;
-        flex: 0 0 220px; /* Largura fixa para portfólio */
+        flex: 0 0 220px;
         scroll-snap-align: start;
     }
 
     .free-beats-section .portfolio-card {
-        flex: 0 0 320px; /* Largura fixa para beats */
+        flex: 0 0 320px;
     }
 
     .portfolio-card:hover {
@@ -231,15 +230,22 @@
         padding: 18px;
     }
 
-    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
+    .card-title { font-weight: bold; display: bold; font-size: 16px; margin-bottom: 4px; }
     .card-artist { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
     .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
     .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
+
+    /* --- CORREÇÃO DO ESPAÇAMENTO DE PRODUTOS --- */
+    #shop {
+        margin-top: 100px; /* Espaço entre Portfólio e Produtos */
+        padding-top: 20px;
+    }
 
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 30px;
+        margin-top: 40px; /* Espaço entre o título "PRODUTOS" e os cards */
     }
 
     .product-banner {
@@ -308,7 +314,7 @@
 
     @media (max-width: 768px) {
         .nav-links { display: none; }
-        .carousel-controls { display: none; } /* Oculta setas no mobile (usa o dedo) */
+        .carousel-controls { display: none; }
     }
 </style>
 </head>
@@ -356,52 +362,7 @@
                         <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
                     </div>
                 </a>
-                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
-                    </div>
-                </a>
-                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
-                    </div>
-                </a>
-                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
-                    </div>
-                </a>
-                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
-                    </div>
-                </a>
-                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
-                    </div>
-                </a>
-            </div>
+                </div>
         </section>
 
         <section id="portfolio">
@@ -413,7 +374,7 @@
                 </div>
             </div>
             <div class="portfolio-grid" id="port-grid">
-                <a href="https://open.spotify.com/intl-pt/track/11UA7o3lu4JE7RzWy8wdCM?si=bfeabd231fbb4efb" class="portfolio-card" target="_blank">
+                <a href="#" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">CDG</span>
@@ -421,94 +382,11 @@
                         <span class="card-role">MIX/MASTER</span>
                     </div>
                 </a>
-                <a href="https://open.spotify.com/intl-pt/track/0YLqIurcRPYRevuDV1AsSh?si=c9858a408f764dfb" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img square">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-                
             </div>
         </section>
 
         <section id="shop">
             <h2 class="section-title">PRODUTOS</h2>
-           </section>
-           </section>
             <div class="shop-grid">
                 <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
                     <div class="product-overlay"></div>
@@ -559,7 +437,9 @@
 <script>
     function scrollCarousel(id, amount) {
         const container = document.getElementById(id);
-        container.scrollBy({ left: amount, behavior: 'smooth' });
+        if(container) {
+            container.scrollBy({ left: amount, behavior: 'smooth' });
+        }
     }
 </script>
 
