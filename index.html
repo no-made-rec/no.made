@@ -104,6 +104,7 @@
         margin: auto;
     }
 
+    /* --- AJUSTE DOS TÍTULOS E CARROSSEL --- */
     .section-header {
         display: flex;
         justify-content: space-between;
@@ -152,63 +153,162 @@
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        padding: 10px 0;
+        padding: 10px 0; /* Espaço para o hover não cortar */
     }
 
     .portfolio-grid::-webkit-scrollbar, .free-beats-grid::-webkit-scrollbar {
         display: none;
     }
 
-    /* Cards de Beats (YouTube) */
-    .free-beats-section .portfolio-card {
-        flex: 0 0 320px;
-        scroll-snap-align: start;
+    .portfolio-card {
         background: var(--card-bg);
         border-radius: 12px;
         overflow: hidden;
+        position: relative;
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         border: 1px solid rgba(255,255,255,0.05);
-        transition: 0.4s;
-    }
-
-    /* Cards de Portfólio (Spotify) */
-    .spotify-card {
-        flex: 0 0 300px;
-        height: 380px;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        flex: 0 0 220px; /* Largura fixa para portfólio */
         scroll-snap-align: start;
-        border-radius: 12px;
-        overflow: hidden;
-        background: #121212;
-        border: 1px solid rgba(255,255,255,0.05);
-        transition: 0.4s;
     }
 
-    .spotify-card:hover, .portfolio-card:hover {
+    .free-beats-section .portfolio-card {
+        flex: 0 0 320px; /* Largura fixa para beats */
+    }
+
+    .portfolio-card:hover {
         transform: translateY(-8px);
         border-color: var(--accent);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
-    .img-container { width: 100%; overflow: hidden; position: relative; }
-    .card-img { width: 100%; height: 100%; display: block; object-fit: cover; transition: 0.5s ease; }
+    .img-container {
+        width: 100%;
+        overflow: hidden;
+        display: block;
+        position: relative;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: 0.5s ease;
+    }
+
+    .square { aspect-ratio: 1/1; }
     .wide { aspect-ratio: 16/9; transform: scale(1.8); }
 
-    .card-info { padding: 18px; background: var(--card-bg); }
-    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
-    .card-artist { color: var(--accent); font-size: 13px; display: block; }
-    .card-tech { font-size: 11px; color: #bbb; display: block; margin-top: 5px; font-family: monospace; }
+    .portfolio-card .card-info {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.75);
+        opacity: 0;
+        transition: 0.4s ease;
+        z-index: 2;
+    }
 
-    /* Estilo da Grid de Produtos */
-    .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-    .product-banner { position: relative; height: 220px; border-radius: 20px; overflow: hidden; display: flex; padding: 30px; text-decoration: none; color: white; background-size: cover; border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; }
-    .product-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%); }
+    .portfolio-card:hover .card-info {
+        opacity: 1;
+        backdrop-filter: blur(8px);
+    }
+
+    .portfolio-card:hover .card-img.square { transform: scale(1.1); }
+
+    .free-beats-section .card-info {
+        position: relative;
+        opacity: 1;
+        background: var(--card-bg);
+        padding: 18px;
+    }
+
+    .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
+    .card-artist { color: var(--accent); font-size: 13px; display: block; margin-bottom: 4px; }
+    .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
+    .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
+
+    .shop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .product-banner {
+        position: relative;
+        height: 220px;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-start; 
+        padding: 30px;
+        text-decoration: none;
+        color: white;
+        background-size: cover;
+        background-position: center;
+        transition: 0.4s;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .methodical-bg { background-position: bottom !important; }
+    .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
+    .product-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+    }
+
     .product-content { position: relative; z-index: 1; }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; text-transform: none; letter-spacing: 0.5px;}
     .price-tag { font-weight: 800; font-size: 18px; }
-    .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; font-size: 14px; }
+    .old-price { color: var(--price-old); text-decoration: line-through; margin-right: 8px; opacity: 0.8; font-size: 14px; }
     .new-price { color: var(--price-new); }
 
-    footer { text-align: center; padding: 80px 20px; opacity: 0.3; font-size: 10px; letter-spacing: 2px; }
+    .contact-cta {
+        margin: 100px 0 0;
+        padding: 80px 20px;
+        text-align: center;
+        border-radius: 40px;
+        border: 2px solid rgba(101,193,251,0.1);
+        background: linear-gradient(145deg, #0a0a0a, #111);
+    }
+    .contact-cta h2 { color: #65c1fb; margin-bottom: 10px; }
+
+    .btn-v1 {
+        display: inline-block;
+        padding: 22px 50px;
+        background: transparent;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+        text-decoration: none;
+        border-radius: 18px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+        margin-top: 30px;
+    }
+    .btn-v1:hover { background: var(--accent); color: #000; box-shadow: 0 0 40px rgba(101,193,251,0.5); }
+
+    footer {
+        text-align: center; 
+        padding: 80px 20px; 
+        opacity: 0.3; 
+        font-size: 10px; 
+        letter-spacing: 2px;
+        background-color: var(--dark-bg);
+    }
 
     @media (max-width: 768px) {
-        .nav-links, .carousel-controls { display: none; }
+        .nav-links { display: none; }
+        .carousel-controls { display: none; } /* Oculta setas no mobile (usa o dedo) */
     }
 </style>
 </head>
@@ -231,6 +331,7 @@
     <div class="social-hero">
         <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:nomaderecordseba@gmail.com"><i class="far fa-envelope"></i></a>
     </div>
 </header>
 
@@ -251,35 +352,92 @@
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span>
+                        <span class="card-tech">125 BPM | Em</span> 
+                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
                     </div>
                 </a>
-                </div>
+                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
+                    <div class="card-info">
+                        <span class="card-title">Always</span>
+                        <span class="card-artist">Free for Non Profit</span>
+                        <span class="card-tech">125 BPM | Em</span> 
+                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                    </div>
+                </a>
+                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
+                    <div class="card-info">
+                        <span class="card-title">Always</span>
+                        <span class="card-artist">Free for Non Profit</span>
+                        <span class="card-tech">125 BPM | Em</span> 
+                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                    </div>
+                </a>
+                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
+                    <div class="card-info">
+                        <span class="card-title">Always</span>
+                        <span class="card-artist">Free for Non Profit</span>
+                        <span class="card-tech">125 BPM | Em</span> 
+                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                    </div>
+                </a>
+                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
+                    <div class="card-info">
+                        <span class="card-title">Always</span>
+                        <span class="card-artist">Free for Non Profit</span>
+                        <span class="card-tech">125 BPM | Em</span> 
+                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                    </div>
+                </a>
+                <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
+                    <div class="card-info">
+                        <span class="card-title">Always</span>
+                        <span class="card-artist">Free for Non Profit</span>
+                        <span class="card-tech">125 BPM | Em</span> 
+                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                    </div>
+                </a>
+            </div>
         </section>
 
         <section id="portfolio">
             <div class="section-header">
                 <h2 class="section-title">PORTIFÓLIO</h2>
                 <div class="carousel-controls">
-                    <button class="nav-btn" onclick="scrollCarousel('port-grid', -320)"><i class="fas fa-chevron-left"></i></button>
-                    <button class="nav-btn" onclick="scrollCarousel('port-grid', 320)"><i class="fas fa-chevron-right"></i></button>
+                    <button class="nav-btn" onclick="scrollCarousel('port-grid', -240)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn" onclick="scrollCarousel('port-grid', 240)"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
             <div class="portfolio-grid" id="port-grid">
-                
-                <div class="spotify-card">
-                    <iframe src="https://open.spotify.com/embed/track/11UA7o3lu4JE7RzWy8wdCM?si=2385325ecf6a4651?utm_source=generator&theme=0" 
-                            width="100%" height="380" frameBorder="0" allowfullscreen="" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-
-                <div class="spotify-card">
-                    <iframe src="https://open.spotify.com/embed/track/ID_DA_MUSICA_AQUI?utm_source=generator&theme=0" 
-                            width="100%" height="380" frameBorder="0" allowfullscreen="" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-
-                </div>
+                <a href="URL_LINK_CDG" class="portfolio-card" target="_blank">
+                    <img src="coverart/cdg.jpg" class="card-img square">
+                    <div class="card-info">
+                        <span class="card-title">CDG</span>
+                        <span class="card-artist">ALV</span>
+                        <span class="card-role">MIX/MASTER</span>
+                    </div>
+                </a>
+                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
+                    <img src="coverart/bheseumundo.jpg" class="card-img square">
+                    <div class="card-info">
+                        <span class="card-title">BH É SEU MUNDO</span>
+                        <span class="card-artist">lavick</span>
+                        <span class="card-role">PRODUÇÃO COMPLETA</span>
+                    </div>
+                </a>
+                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
+                    <img src="coverart/bheseumundo.jpg" class="card-img square">
+                    <div class="card-info"><span class="card-title">BH É SEU MUNDO</span><span class="card-artist">lavick</span><span class="card-role">PRODUÇÃO</span></div>
+                </a>
+                <a href="URL_LINK_BH" class="portfolio-card" target="_blank">
+                    <img src="coverart/bheseumundo.jpg" class="card-img square">
+                    <div class="card-info"><span class="card-title">BH É SEU MUNDO</span><span class="card-artist">lavick</span><span class="card-role">PRODUÇÃO</span></div>
+                </a>
+            </div>
         </section>
 
         <section id="shop">
@@ -289,14 +447,30 @@
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>SUPERPACK DE BEATS</h3>
-                        <div class="price-tag"><span class="old-price">De R$ 199,99</span><span class="new-price">Por R$ 95</span></div>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 199,99</span>
+                            <span class="new-price">Por R$ 95</span>
+                        </div>
                     </div>
                 </a>
                 <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>Lumus Sample Pack</h3>
-                        <div class="price-tag"><span class="old-price">De R$ 49,99</span><span class="new-price">R$ 25</span></div>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 49,99</span>
+                            <span class="new-price">R$ 25</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>methodical. loop pack</h3>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 79,99</span>
+                            <span class="new-price">R$ 45</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -304,12 +478,15 @@
 
         <section id="contato" class="contact-cta">
             <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
-            <p style="opacity: 0.8; font-size: 16px;">Desenvolvemos sua sonoridade do zero</p>
-            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO</a>
+            <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">Desenvolvemos sua sonoridade do zero com exclusividade total</p>
+            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO PERSONALIZADO</a>
         </section>
 
     </main>
-    <footer>© 2026 NÔMADE RECORD'S.</footer>
+
+    <footer>
+        © 2026 NÔMADE RECORD'S.
+    </footer>
 </div>
 
 <script>
