@@ -141,23 +141,26 @@
     /* CONTAINER PARA O ZOOM DAS THUMBS DO YT */
     .img-container {
         width: 100%;
-        overflow: hidden; /* Corta as barras pretas laterais */
-        display: block;
-        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
     }
 
     .card-img {
         width: 100%;
+        height: 100%;
         display: block;
         object-fit: cover;
     }
 
     .square { aspect-ratio: 1/1; }
 
-    /* AQUI ESTÁ O TRUQUE: Zoom de 1.4x para remover as bordas da thumb 1:1 no YT wide */
+    /* SCALE 1.8 PARA MATAR AS BORDAS PRETAS LATERAIS */
     .wide { 
-        aspect-ratio: 16/9; 
-        transform: scale(1.35); 
+        transform: scale(1.8); 
     }
 
     .card-info { padding: 18px; position: relative; z-index: 2; background: var(--card-bg); }
@@ -167,6 +170,7 @@
     .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
     .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
 
+    /* SHOP GRID */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -260,9 +264,9 @@
     <h1>Nômade Record's</h1>
     <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px; margin-top: 10px; font-weight: 500;">Produtora Independente de BH</p>
     <div class="social-hero">
-        <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/nomade.records" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:nomaderecorsdeba@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="mailto:contato@nomaderecords.com"><i class="far fa-envelope"></i></a>
     </div>
 </header>
 
@@ -270,17 +274,17 @@
     <main class="section-container">
         
         <section id="free-beats">
-            <h2 class="section-title">BEATS FREE</h2>
+            <h2 class="section-title">BEATS FREE RECENTES</h2>
             <div class="free-beats-grid">
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
                     <div class="img-container">
                         <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
                     </div>
                     <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
-                        <span class="card-tech">125 BPM | Em</span> 
-                        <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
+                        <span class="card-title">NOME DO BEAT FREE</span>
+                        <span class="card-artist">Free for Profit</span>
+                        <span class="card-tech">140 BPM | G#m</span> 
+                        <span class="card-role">Trap / Dark</span>
                     </div>
                 </a>
             </div>
@@ -289,7 +293,7 @@
         <section id="portfolio">
             <h2 class="section-title">PORTIFÓLIO</h2>
             <div class="portfolio-grid">
-                <a href="https://open.spotify.com/intl-pt/track/11UA7o3lu4JE7RzWy8wdCM?si=ff128dd9f17846cd" class="portfolio-card" target="_blank">
+                <a href="URL_1" class="portfolio-card" target="_blank">
                     <img src="coverart/cdg.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">CDG</span>
@@ -297,7 +301,7 @@
                         <span class="card-role">MIX/MASTER</span>
                     </div>
                 </a>
-                <a href="https://open.spotify.com/intl-pt/track/0YLqIurcRPYRevuDV1AsSh?si=7054dec4419f44a2" class="portfolio-card" target="_blank">
+                <a href="URL_2" class="portfolio-card" target="_blank">
                     <img src="coverart/bheseumundo.jpg" class="card-img square">
                     <div class="card-info">
                         <span class="card-title">BH É SEU MUNDO</span>
@@ -353,7 +357,7 @@
     </main>
 
     <footer>
-        © 2026 NÔMADE RECORD'S.
+        © 2026 NÔMADE RECORD'S. TODOS OS DIREITOS RESERVADOS.
     </footer>
 </div>
 
