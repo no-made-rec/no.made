@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nômade Record's | Site Oficial</title>
-<script src="https://unpkg.com/wavesurfer.js"></script>
 <style>
     :root {
         --accent: #65c1fb;
@@ -37,107 +36,123 @@
         color: white;
         text-decoration: none;
         margin-left: 25px;
-        font-size: 14px;
+        font-size: 12px;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        opacity: 0.8;
+        letter-spacing: 2px;
+        opacity: 0.7;
+        transition: 0.3s;
     }
+    
+    .nav-links a:hover { opacity: 1; color: var(--accent); }
 
     /* --- HERO SECTION --- */
     .hero {
-        height: 60vh;
+        height: 70vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg)), 
+        background: linear-gradient(to bottom, rgba(5,5,5,0.2), var(--bg)), 
                     url('img/banner-bg.jpg') top/cover;
         text-align: center;
         padding: 0 20px;
     }
 
+    .hero-logo {
+        height: 100px; /* Ajuste conforme o tamanho da sua logo */
+        margin-bottom: 10px;
+        filter: drop-shadow(0 0 10px rgba(101,193,251,0.2));
+    }
+
     .hero h1 {
-        font-size: clamp(32px, 8vw, 64px);
+        font-size: clamp(32px, 8vw, 60px);
         margin: 0;
-        text-transform: lowercase;
+        letter-spacing: -1px;
+        /* Removido o text-transform: lowercase para respeitar sua escrita */
     }
 
     /* --- GRID SISTEMA --- */
     .section-container {
-        padding: 60px 5%;
+        padding: 40px 5%;
         max-width: 1400px;
         margin: auto;
     }
 
     h2.section-title {
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 40px;
-        border-left: 4px solid var(--accent);
+        border-left: 3px solid var(--accent);
         padding-left: 15px;
         text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     /* --- PORTFOLIO GRID (6 em 6) --- */
     .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 25px;
-        margin-bottom: 50px;
+        gap: 20px;
+        margin-bottom: 80px;
     }
 
     .portfolio-card {
         background: var(--card-bg);
-        border-radius: 12px;
+        border-radius: 10px;
         overflow: hidden;
-        transition: 0.3s;
-        border: 1px solid rgba(255,255,255,0.05);
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border: 1px solid rgba(255,255,255,0.03);
+        text-decoration: none; /* Garante que o link não mude a cor do texto */
+        color: inherit;
+        display: block;
     }
 
     .portfolio-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
         border-color: var(--accent);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
     .card-img {
         width: 100%;
         aspect-ratio: 1/1;
         object-fit: cover;
+        display: block;
     }
 
-    .card-info {
-        padding: 15px;
-    }
+    .card-info { padding: 15px; }
 
     .card-title {
         font-weight: bold;
         display: block;
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 4px;
     }
 
     .card-artist {
         color: var(--accent);
-        font-size: 14px;
+        font-size: 13px;
         display: block;
-        margin: 4px 0;
+        margin-bottom: 8px;
     }
 
     .card-role {
-        font-size: 12px;
-        color: #888;
+        font-size: 11px;
+        color: #666;
         text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     /* --- SHOP SECTION --- */
     .shop-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
     }
 
     .product-banner {
         position: relative;
-        height: 250px;
-        border-radius: 20px;
+        height: 280px;
+        border-radius: 15px;
         overflow: hidden;
         display: flex;
         align-items: flex-end;
@@ -146,12 +161,22 @@
         color: white;
         background-size: cover;
         background-position: center;
+        transition: 0.4s;
+        border: 1px solid rgba(255,255,255,0.1);
     }
+
+    .product-banner:hover {
+        transform: scale(1.02);
+        border-color: var(--accent);
+    }
+
+    /* Ajuste específico para o Methodical */
+    .methodical-bg { background-position: bottom !important; }
 
     .product-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 70%);
     }
 
     .product-content {
@@ -159,34 +184,45 @@
         z-index: 1;
     }
 
-    /* --- CTA FINAL --- */
+    .product-content h3 { margin: 0 0 5px 0; font-size: 18px; }
+    .product-content p { margin: 0; opacity: 0.8; font-size: 14px; }
+
+    /* --- CTA FINAL (ESTILO VERSÃO 1) --- */
     .contact-cta {
-        background: var(--card-bg);
-        padding: 80px 20px;
+        margin: 100px 0;
+        padding: 60px 20px;
         text-align: center;
-        border-radius: 40px;
-        margin: 100px 5% 50px;
+        border-radius: 30px;
+        border: 1px solid rgba(255,255,255,0.05);
+        background: rgba(255,255,255,0.01);
     }
 
-    .btn-main {
+    .btn-v1 {
         display: inline-block;
-        padding: 18px 40px;
-        background: var(--accent);
-        color: black;
+        padding: 20px 45px;
+        background: transparent;
+        color: var(--accent);
+        border: 2px solid var(--accent);
         text-decoration: none;
-        border-radius: 50px;
-        font-weight: bold;
-        margin-top: 20px;
-        transition: 0.3s;
+        border-radius: 15px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+        margin-top: 25px;
     }
 
-    .btn-main:hover { background: white; }
+    .btn-v1:hover {
+        background: var(--accent);
+        color: #000;
+        box-shadow: 0 0 30px rgba(101,193,251,0.4);
+        transform: scale(1.05);
+    }
 
     @media (max-width: 768px) {
         .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-        .hero h1 { font-size: 40px; }
-        nav { padding: 20px; }
-        .nav-links { display: none; } /* Pode virar um menu hamburguer depois */
+        .hero { height: 50vh; }
+        .nav-links { display: none; }
     }
 </style>
 </head>
@@ -197,14 +233,16 @@
     <div class="nav-links">
         <a href="#portfolio">Portfólio</a>
         <a href="#shop">Loja</a>
-        <a href="#contato">Contrate</a>
+        <a href="#contato">Contato</a>
     </div>
 </nav>
 
 <header class="hero">
-    <div class="product-overlay"></div>
+    <img src="img/logo.png" alt="Logo Nômade" class="hero-logo">
     <h1>Nômade Record's</h1>
-    <p style="z-index:1; opacity: 0.6;">Produtora independente de BH</p>
+    <p style="opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px;">
+        Produtora Independente de BH
+    </p>
 </header>
 
 <main class="section-container">
@@ -212,61 +250,68 @@
     <section id="portfolio">
         <h2 class="section-title">Portfólio Recente</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-card">
+            
+            <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=iVUg9DgaRNa7r2xiZwE4VA" class="portfolio-card" target="_blank">
                 <img src="coverart/cdg.jpg" class="card-img">
                 <div class="card-info">
                     <span class="card-title">CDG</span>
                     <span class="card-artist">ALV</span>
                     <span class="card-role">MIX/MASTER</span>
                 </div>
-            </div>
-            <div class="portfolio-card">
+            </a>
+
+            <a href="https://open.spotify.com/intl-pt/album/3ZCthM6CE2JSvCRXTPwKeg?si=NznTtMf7Qe-D_9XhyK8jaA" class="portfolio-card" target="_blank">
                 <img src="coverart/bheseumundo.jpg" class="card-img">
                 <div class="card-info">
                     <span class="card-title">BH É SEU MUNDO</span>
                     <span class="card-artist">lavick</span>
                     <span class="card-role">Produção Completa</span>
                 </div>
-            </div>
+            </a>
+
             </div>
     </section>
 
-    <section id="shop" style="margin-top: 100px;">
-        <h2 class="section-title">Produtos & Packs</h2>
+    <section id="shop">
+        <h2 class="section-title">Produtos e Packs</h2>
         <div class="shop-grid">
-            <a href="#" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');">
+            
+            <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <h3>SUPERPACK DE BEATS</h3>
-                    <p>40 Instrumentais - R$ 95</p>
+                    <p>40 Instrumentais Prontos - R$ 95</p>
                 </div>
             </a>
-            <a href="#" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');">
+
+            <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <h3>Lumus Sample Pack</h3>
                     <p>10 Loops Premium - R$ 25</p>
                 </div>
             </a>
-            <a href="#" class="product-banner" style="background-image: url('img/capa-methodical.jpg');">
+
+            <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <h3>methodical.</h3>
-                    <p>5 Loops Premium com stems inclusos - R$ 45</p>
+                    <p>5 Loops com stems inclusos - R$ 45</p>
                 </div>
             </a>
+
         </div>
     </section>
 
     <section id="contato" class="contact-cta">
         <h2>Não encontrou o que procurava?</h2>
-        <p>Vamos trocar uma ideia sobre o seu projeto exclusivo.</p>
-        <a href="https://wa.me/31993792797" class="btn-main">SOLICITAR BEAT PERSONALIZADO</a>
+        <p style="opacity: 0.6;">Desenvolvemos sua sonoridade do zero com exclusividade total.</p>
+        <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR BEAT PERSONALIZADO</a>
     </section>
 
 </main>
 
-<footer style="text-align: center; padding: 40px; opacity: 0.4; font-size: 12px;">
+<footer style="text-align: center; padding: 60px 20px; opacity: 0.3; font-size: 10px; letter-spacing: 2px;">
     © 2026 NÔMADE RECORD'S.
 </footer>
 
