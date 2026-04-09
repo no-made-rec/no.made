@@ -138,27 +138,26 @@
         box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
-    /* CONTAINER DA IMAGEM PARA CONTROLAR O ZOOM */
+    /* CONTAINER PARA O ZOOM DAS THUMBS DO YT */
     .img-container {
         width: 100%;
-        overflow: hidden; /* Corta o excesso do zoom */
+        overflow: hidden; /* Corta as barras pretas laterais */
         display: block;
+        position: relative;
     }
 
     .card-img {
         width: 100%;
         display: block;
         object-fit: cover;
-        transition: 0.4s;
     }
 
-    /* PROPORÇÕES */
     .square { aspect-ratio: 1/1; }
-    
-    /* WIDE COM ZOOM: Transforma a capa 1:1 do YT em 16:9 sem as bordas pretas */
+
+    /* AQUI ESTÁ O TRUQUE: Zoom de 1.4x para remover as bordas da thumb 1:1 no YT wide */
     .wide { 
         aspect-ratio: 16/9; 
-        transform: scale(1.3); /* Dá o zoom necessário para sumir as bordas laterais do YT */
+        transform: scale(1.35); 
     }
 
     .card-info { padding: 18px; position: relative; z-index: 2; background: var(--card-bg); }
@@ -168,7 +167,6 @@
     .card-tech { font-size: 11px; color: #bbb; display: block; margin-bottom: 8px; font-family: monospace; }
     .card-role { font-size: 11px; color: #777; letter-spacing: 1px; }
 
-    /* SHOP SECTION */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -262,33 +260,14 @@
     <h1>Nômade Record's</h1>
     <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px; margin-top: 10px; font-weight: 500;">Produtora Independente de BH</p>
     <div class="social-hero">
-        <a href="https://instagram.com/nomade.records" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/no.made.rec" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/31993792797" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:contato@nomaderecords.com"><i class="far fa-envelope"></i></a>
+        <a href="mailto:nomaderecorsdeba@gmail.com"><i class="far fa-envelope"></i></a>
     </div>
 </header>
 
 <div class="black-stack">
     <main class="section-container">
-
-    /* 1. Garante que o container corte o que sobrar do zoom */
-.img-container {
-    width: 100%;
-    aspect-ratio: 16/9; /* Força a proporção de cinema */
-    overflow: hidden;
-    display: block;
-    position: relative;
-}
-
-/* 2. Aplica o zoom na imagem para sumir com as bordas pretas */
-.card-img.wide {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* O scale de 1.1 a 1.2 geralmente é o suficiente para esconder as bordas do YT */
-    transform: scale(1.15); 
-    display: block;
-}
         
         <section id="free-beats">
             <h2 class="section-title">BEATS FREE</h2>
@@ -298,8 +277,8 @@
                         <img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide">
                     </div>
                     <div class="card-info">
-                        <span class="card-title">Always</span>
-                        <span class="card-artist">Free for Non Profit</span>
+                        <span class="card-title">ALways</span>
+                        <span class="card-artist">Free for Profit</span>
                         <span class="card-tech">125 BPM | Em</span> 
                         <span class="card-role">Duzz x Dudu x Jotapê x Vk Mac Type Beat</span>
                     </div>
@@ -323,4 +302,60 @@
                     <div class="card-info">
                         <span class="card-title">BH É SEU MUNDO</span>
                         <span class="card-artist">lavick</span>
-                        <span class="card
+                        <span class="card-role">PRODUÇÃO COMPLETA</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="shop">
+            <h2 class="section-title">PRODUTOS E PACKS</h2>
+            <div class="shop-grid">
+                <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>SUPERPACK DE BEATS</h3>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 199,99</span>
+                            <span class="new-price">Por R$ 95</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>Lumus Sample Pack</h3>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 49,99</span>
+                            <span class="new-price">R$ 25</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>methodical. loop pack</h3>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 79,99</span>
+                            <span class="new-price">R$ 45</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-cta">
+            <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
+            <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">Desenvolvemos sua sonoridade do zero com exclusividade total</p>
+            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO PERSONALIZADO</a>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 NÔMADE RECORD'S.
+    </footer>
+</div>
+
+</body>
+</html>
