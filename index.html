@@ -235,14 +235,22 @@
         transform: scale(1.05);
     }
 
+    /* --- CORREÇÃO FINAL DA BARRA AZUL --- */
     footer {
         text-align: center; 
-        padding: 60px 20px; 
+        padding: 80px 20px; 
         opacity: 0.3; 
         font-size: 10px; 
         letter-spacing: 2px;
-        background-color: var(--dark-bg); /* Garante que o fundo seja preto */
-        margin: 0;
+        background-color: var(--dark-bg);
+        margin-top: -1px; /* Remove qualquer fresta entre a section e o footer */
+        width: 100%;
+        display: block;
+    }
+
+    /* Garante que o fundo preto cubra o resto da tela se o conteúdo for curto */
+    main.section-container {
+        min-height: 50vh;
     }
 
     @media (max-width: 768px) {
@@ -258,102 +266,4 @@
 <nav>
     <div class="logo"><strong>NO.MADE</strong></div>
     <div class="nav-links">
-        <a href="#portfolio">Portfólio</a>
-        <a href="#shop">Loja</a>
-        <a href="#contato">Contato</a>
-    </div>
-</nav>
-
-<header class="hero">
-    <img src="img/logo.png" alt="Logo Nômade" class="hero-logo">
-    <h1>Nômade Record's</h1>
-    <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px; margin-top: 10px; font-weight: 500;">
-        Produtora Independente de BH
-    </p>
-</header>
-
-<main class="section-container">
-    <div class="content-wrapper">
-    
-        <section id="portfolio">
-            <h2 class="section-title">PORTIFÓLIO</h2>
-            <div class="portfolio-grid">
-                
-                <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=iVUg9DgaRNa7r2xiZwE4VA" class="portfolio-card" target="_blank">
-                    <img src="coverart/cdg.jpg" class="card-img">
-                    <div class="card-info">
-                        <span class="card-title">CDG</span>
-                        <span class="card-artist">ALV</span>
-                        <span class="card-role">MIX/MASTER</span>
-                    </div>
-                </a>
-
-                <a href="https://open.spotify.com/intl-pt/album/3ZCthM6CE2JSvCRXTPwKeg?si=NznTtMf7Qe-D_9XhyK8jaA" class="portfolio-card" target="_blank">
-                    <img src="coverart/bheseumundo.jpg" class="card-img">
-                    <div class="card-info">
-                        <span class="card-title">BH É SEU MUNDO</span>
-                        <span class="card-artist">lavick</span>
-                        <span class="card-role">PRODUÇÃO COMPLETA</span>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
-        <section id="shop">
-            <h2 class="section-title">PRODUTOS E PACKS</h2>
-            <div class="shop-grid">
-                
-                <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
-                    <div class="product-overlay"></div>
-                    <div class="product-content">
-                        <h3>SUPERPACK DE BEATS</h3>
-                        <div class="price-tag">
-                            <span class="old-price">De R$ 199,99</span>
-                            <span class="new-price">Por R$ 95</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
-                    <div class="product-overlay"></div>
-                    <div class="product-content">
-                        <h3>Lumus Sample Pack</h3>
-                        <div class="price-tag">
-                            <span class="old-price">De R$ 49,99</span>
-                            <span class="new-price">R$ 25</span>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
-                    <div class="product-overlay"></div>
-                    <div class="product-content">
-                        <h3>methodical. loop pack</h3>
-                        <div class="price-tag">
-                            <span class="old-price">De R$ 79,99</span>
-                            <span class="new-price">R$ 45</span>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-        </section>
-
-        <section id="contato" class="contact-cta">
-            <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
-            <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">
-                Desenvolvemos sua sonoridade do zero com exclusividade total
-            </p>
-            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO PERSONALIZADO</a>
-        </section>
-
-    </div>
-</main>
-
-<footer>
-    © 2026 NÔMADE RECORD'S. TODOS OS DIREITOS RESERVADOS.
-</footer>
-
-</body>
-</html>
+        <a href="#portfolio">
