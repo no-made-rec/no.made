@@ -7,15 +7,19 @@
 <style>
     :root {
         --accent: #65c1fb;
-        --bg: #050505;
-        --card-bg: rgba(255, 255, 255, 0.05);
+        --bg-gradient: linear-gradient(135deg, #007cf0 0%, #00dfd8 100%); /* Baseado no seu print azul */
+        --dark-bg: #050505;
+        --card-bg: rgba(0, 0, 0, 0.85);
+        --price-old: #ff4d4d;
+        --price-new: #2ecc71;
     }
 
     * { box-sizing: border-box; }
 
     body {
         margin: 0;
-        background-color: var(--bg);
+        background: var(--bg-gradient);
+        background-attachment: fixed;
         color: white;
         font-family: 'Inter', -apple-system, sans-serif;
         overflow-x: hidden;
@@ -38,12 +42,11 @@
         margin-left: 25px;
         font-size: 12px;
         letter-spacing: 2px;
-        opacity: 0.7;
+        opacity: 0.9;
         transition: 0.3s;
-        /* text-transform removido para respeitar sua escrita */
     }
     
-    .nav-links a:hover { opacity: 1; color: var(--accent); }
+    .nav-links a:hover { opacity: 1; color: var(--dark-bg); }
 
     /* --- HERO SECTION --- */
     .hero {
@@ -52,16 +55,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom, rgba(5,5,5,0.2), var(--bg)), 
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), var(--dark-bg)), 
                     url('img/banner-bg.jpg') top/cover;
         text-align: center;
         padding: 0 20px;
     }
 
     .hero-logo {
-        height: 100px;
+        height: 110px;
         margin-bottom: 10px;
-        filter: drop-shadow(0 0 10px rgba(101,193,251,0.2));
+        filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
     }
 
     .hero h1 {
@@ -72,7 +75,13 @@
 
     /* --- GRID SISTEMA --- */
     .section-container {
-        padding: 40px 5%;
+        background-color: var(--dark-bg); /* O conteúdo principal fica no fundo preto */
+        padding: 60px 5%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .content-wrapper {
         max-width: 1400px;
         margin: auto;
     }
@@ -80,26 +89,25 @@
     h2.section-title {
         font-size: 20px;
         margin-bottom: 40px;
-        border-left: 3px solid var(--accent);
+        border-left: 4px solid var(--accent);
         padding-left: 15px;
         letter-spacing: 1px;
-        /* text-transform removido */
     }
 
-    /* --- PORTFOLIO GRID (6 em 6) --- */
+    /* --- PORTFOLIO GRID --- */
     .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 20px;
         margin-bottom: 80px;
     }
 
     .portfolio-card {
         background: var(--card-bg);
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
         transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        border: 1px solid rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.05);
         text-decoration: none;
         color: inherit;
         display: block;
@@ -108,7 +116,6 @@
     .portfolio-card:hover {
         transform: translateY(-8px);
         border-color: var(--accent);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
     .card-img {
@@ -118,12 +125,12 @@
         display: block;
     }
 
-    .card-info { padding: 15px; }
+    .card-info { padding: 18px; }
 
     .card-title {
         font-weight: bold;
         display: block;
-        font-size: 15px;
+        font-size: 16px;
         margin-bottom: 4px;
     }
 
@@ -136,22 +143,21 @@
 
     .card-role {
         font-size: 11px;
-        color: #666;
+        color: #777;
         letter-spacing: 1px;
-        /* text-transform removido */
     }
 
-    /* --- SHOP SECTION (TEXTO NO TOPO) --- */
+    /* --- SHOP SECTION (TEXTO NO TOPO COM PREÇOS) --- */
     .shop-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
     }
 
     .product-banner {
         position: relative;
-        height: 280px;
-        border-radius: 15px;
+        height: 320px;
+        border-radius: 20px;
         overflow: hidden;
         display: flex;
         align-items: flex-start;
@@ -167,6 +173,7 @@
     .product-banner:hover {
         transform: scale(1.02);
         border-color: var(--accent);
+        box-shadow: 0 10px 30px rgba(101,193,251,0.2);
     }
 
     .methodical-bg { background-position: bottom !important; }
@@ -174,7 +181,7 @@
     .product-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 50%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
     }
 
     .product-content {
@@ -182,45 +189,61 @@
         z-index: 1;
     }
 
-    .product-content h3 { margin: 0 0 5px 0; font-size: 18px; }
-    .product-content p { margin: 0; opacity: 0.9; font-size: 14px; font-weight: 500; }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; line-height: 1.2; }
+    
+    .price-tag {
+        font-weight: 800;
+        font-size: 16px;
+    }
+
+    .old-price {
+        color: var(--price-old);
+        text-decoration: line-through;
+        margin-right: 8px;
+        opacity: 0.8;
+    }
+
+    .new-price {
+        color: var(--price-new);
+        text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+    }
 
     /* --- CTA FINAL --- */
     .contact-cta {
         margin: 100px 0;
-        padding: 60px 20px;
+        padding: 80px 20px;
         text-align: center;
-        border-radius: 30px;
-        border: 1px solid rgba(255,255,255,0.05);
-        background: rgba(255,255,255,0.01);
+        border-radius: 40px;
+        border: 2px solid rgba(101,193,251,0.1);
+        background: linear-gradient(145deg, #0a0a0a, #111);
     }
 
     .btn-v1 {
         display: inline-block;
-        padding: 20px 45px;
+        padding: 22px 50px;
         background: transparent;
         color: var(--accent);
         border: 2px solid var(--accent);
         text-decoration: none;
-        border-radius: 15px;
+        border-radius: 18px;
         font-weight: 800;
         letter-spacing: 1px;
         transition: 0.3s ease;
-        margin-top: 25px;
-        /* text-transform removido */
+        margin-top: 30px;
     }
 
     .btn-v1:hover {
         background: var(--accent);
         color: #000;
-        box-shadow: 0 0 30px rgba(101,193,251,0.4);
+        box-shadow: 0 0 40px rgba(101,193,251,0.5);
         transform: scale(1.05);
     }
 
     @media (max-width: 768px) {
         .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-        .hero { height: 50vh; }
+        .hero { height: 60vh; }
         .nav-links { display: none; }
+        .shop-grid { grid-template-columns: 1fr; }
     }
 </style>
 </head>
@@ -229,88 +252,101 @@
 <nav>
     <div class="logo"><strong>NO.MADE</strong></div>
     <div class="nav-links">
-        <a href="#portfolio">PORTIFÓLIO</a>
-        <a href="#shop">LOJA</a>
-        <a href="#contato">CONTATO</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#shop">Loja</a>
+        <a href="#contato">Contato</a>
     </div>
 </nav>
 
 <header class="hero">
     <img src="img/logo.png" alt="Logo Nômade" class="hero-logo">
     <h1>Nômade Record's</h1>
-    <p style="opacity: 0.5; letter-spacing: 2px; font-size: 12px; margin-top: 10px;">
+    <p style="opacity: 0.8; letter-spacing: 2px; font-size: 13px; margin-top: 10px; font-weight: 500;">
         Produtora Independente de BH
     </p>
 </header>
 
 <main class="section-container">
+    <div class="content-wrapper">
     
-    <section id="portfolio">
-        <h2 class="section-title">PORTIFÓLIO</h2>
-        <div class="portfolio-grid">
-            
-            <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=iVUg9DgaRNa7r2xiZwE4VA" class="portfolio-card" target="_blank">
-                <img src="coverart/cdg.jpg" class="card-img">
-                <div class="card-info">
-                    <span class="card-title">CDG</span>
-                    <span class="card-artist">ALV</span>
-                    <span class="card-role">MIX/MASTER</span>
-                </div>
-            </a>
+        <section id="portfolio">
+            <h2 class="section-title">PORTIFÓLIO</h2>
+            <div class="portfolio-grid">
+                
+                <a href="https://open.spotify.com/intl-pt/album/29MtTATZiKGIVu98w2O6pM?si=iVUg9DgaRNa7r2xiZwE4VA" class="portfolio-card" target="_blank">
+                    <img src="coverart/cdg.jpg" class="card-img">
+                    <div class="card-info">
+                        <span class="card-title">CDG</span>
+                        <span class="card-artist">ALV</span>
+                        <span class="card-role">MIX/MASTER</span>
+                    </div>
+                </a>
 
-            <a href="https://open.spotify.com/intl-pt/album/3ZCthM6CE2JSvCRXTPwKeg?si=NznTtMf7Qe-D_9XhyK8jaA" class="portfolio-card" target="_blank">
-                <img src="coverart/bheseumundo.jpg" class="card-img">
-                <div class="card-info">
-                    <span class="card-title">BH É SEU MUNDO</span>
-                    <span class="card-artist">lavick</span>
-                    <span class="card-role">PRODUÇÃO COMPLETA</span>
-                </div>
-            </a>
+                <a href="https://open.spotify.com/intl-pt/album/3ZCthM6CE2JSvCRXTPwKeg?si=NznTtMf7Qe-D_9XhyK8jaA" class="portfolio-card" target="_blank">
+                    <img src="coverart/bheseumundo.jpg" class="card-img">
+                    <div class="card-info">
+                        <span class="card-title">BH É SEU MUNDO</span>
+                        <span class="card-artist">lavick</span>
+                        <span class="card-role">PRODUÇÃO COMPLETA</span>
+                    </div>
+                </a>
 
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section id="shop">
-        <h2 class="section-title">PRODUTOS E PACKS</h2>
-        <div class="shop-grid">
-            
-            <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
-                <div class="product-overlay"></div>
-                <div class="product-content">
-                    <h3>SUPERPACK DE BEATS</h3>
-                    <p>40 Instrumentais Prontos - R$ 95</p>
-                </div>
-            </a>
+        <section id="shop">
+            <h2 class="section-title">PRODUTOS E PACKS</h2>
+            <div class="shop-grid">
+                
+                <a href="https://tr.ee/superpackdebeats" class="product-banner" style="background-image: url('img/capa-superpackdebeats.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>SUPERPACK DE BEATS | 40 Instrumentais Profissionais</h3>
+                        <div class="price-tag">
+                            <span class="old-price">De R$ 199,99</span>
+                            <span class="new-price">Por R$ 95</span>
+                        </div>
+                    </div>
+                </a>
 
-            <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
-                <div class="product-overlay"></div>
-                <div class="product-content">
-                    <h3>Lumus Sample Pack</h3>
-                    <p>10 Loops Premium - R$ 25</p>
-                </div>
-            </a>
+                <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>Lumus Sample Pack</h3>
+                        <div class="price-tag">
+                              <span class="old-price">De R$ 49,99</span>
+                            <span class="new-price">R$ 25</span>
+                        </div>
+                    </div>
+                </a>
 
-            <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
-                <div class="product-overlay"></div>
-                <div class="product-content">
-                    <h3>methodical.</h3>
-                    <p>5 Loops com stems inclusos - R$ 45</p>
-                </div>
-            </a>
+                <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
+                    <div class="product-overlay"></div>
+                    <div class="product-content">
+                        <h3>methodical. loop pack</h3>
+                        <div class="price-tag">
+                              <span class="old-price">De R$ 79,99</span>
+                            <span class="new-price">R$ 45</span>
+                        </div>
+                    </div>
+                </a>
 
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section id="contato" class="contact-cta">
-        <h2>Não encontrou o que procurava?</h2>
-        <p style="opacity: 0.6;">Desenvolvemos sua sonoridade do zero com exclusividade total.</p>
-        <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR BEAT PERSONALIZADO</a>
-    </section>
+        <section id="contato" class="contact-cta">
+            <h2 style="border:none; padding:0; font-size: 28px;">Quer algo exclusivo?</h2>
+            <p style="opacity: 0.8; font-size: 16px; max-width: 600px; margin: auto;">
+                Desenvolvemos sua sonoridade do zero com exclusividade total
+            </p>
+            <a href="https://wa.me/31993792797" class="btn-v1">SOLICITAR ORÇAMENTO PERSONALIZADO</a>
+        </section>
 
+    </div>
 </main>
 
-<footer style="text-align: center; padding: 60px 20px; opacity: 0.3; font-size: 10px; letter-spacing: 2px;">
-    © 2026 NÔMADE RECORD'S.
+<footer style="text-align: center; padding: 60px 20px; opacity: 0.4; font-size: 11px; letter-spacing: 2px; background-color: var(--dark-bg);">
+    © 2026 NÔMADE RECORD'S
 </footer>
 
 </body>
