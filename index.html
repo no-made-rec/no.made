@@ -197,11 +197,17 @@
         display: block;
         object-fit: cover;
         transition: 0.5s ease;
+        transform: scale(1); /* Padrão sem zoom */
     }
 
-    /* CLASSES DE ZOOM SEPARADAS */
-    .zoom-portfolio { aspect-ratio: 1/1; transform: scale(1); }
-    .zoom-beats { aspect-ratio: 16/9; transform: scale(1.8); }
+    /* BLOQUEIO DO ZOOM GIGANTE */
+    .square { aspect-ratio: 1/1; }
+    
+    /* O zoom de 1.8x agora SÓ afeta os Beats Recentes */
+    .free-beats-section .card-img.wide { 
+        aspect-ratio: 16/9; 
+        transform: scale(1.8); 
+    }
 
     .portfolio-card .card-info {
         position: absolute;
@@ -223,7 +229,8 @@
         backdrop-filter: blur(8px);
     }
 
-    .portfolio-card:hover .zoom-portfolio { transform: scale(1.05); }
+    /* Zoom sutil apenas no hover do portfólio */
+    .portfolio-card:hover .card-img.square { transform: scale(1.05); }
 
     .free-beats-section .card-info {
         position: relative;
@@ -351,7 +358,7 @@
             <div class="free-beats-grid">
                 
                 <a href="https://youtu.be/4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img zoom-beats"></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Always</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -361,7 +368,7 @@
                 </a>
 
                 <a href="https://youtu.be/0WjVd2kVz3A" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/0WjVd2kVz3A/maxresdefault.jpg" class="card-img zoom-beats"></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/0WjVd2kVz3A/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Heaven</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -371,7 +378,7 @@
                 </a>
                 
                 <a href="https://youtu.be/xa5LqMDkeVU" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/xa5LqMDkeVU/maxresdefault.jpg" class="card-img zoom-beats"></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/xa5LqMDkeVU/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Bonk</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -381,7 +388,7 @@
                 </a>
 
                 <a href="https://youtu.be/_RJ9JK8qBrY" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/_RJ9JK8qBrY/maxresdefault.jpg" class="card-img zoom-beats"></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/_RJ9JK8qBrY/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Scary</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -391,7 +398,7 @@
                 </a>
 
                 <a href="https://youtu.be/fyDUekf0SB4" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/fyDUekf0SB4/maxresdefault.jpg" class="card-img zoom-beats"></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/fyDUekf0SB4/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Caveman</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -401,7 +408,7 @@
                 </a>
 
                 <a href="https://youtu.be/JdmJjsv9cb0" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/JdmJjsv9cb0/maxresdefault.jpg" class="card-img zoom-beats"></div>
+                    <div class="img-container"><img src="https://img.youtube.com/vi/JdmJjsv9cb0/maxresdefault.jpg" class="card-img wide"></div>
                     <div class="card-info">
                         <span class="card-title">Off Lights</span>
                         <span class="card-artist">Free for Non Profit</span>
@@ -418,80 +425,80 @@
             <div class="portfolio-wrapper">
                 <button class="nav-arrow arrow-left" onclick="scrollPort('left')"><i class="fas fa-chevron-left"></i></button>
                 <div class="portfolio-grid-carousel" id="portfolioScroll">
-                    <a href="https://open.spotify.com/track/123" class="portfolio-card" target="_blank">
-                        <img src="coverart/cdg.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/6I07N3SHeD4tWvA0EaH0pU" class="portfolio-card" target="_blank">
+                        <img src="coverart/cdg.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">CDG</span>
                             <span class="card-artist">ALV</span>
                             <span class="card-role">MIX/MASTER</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
                             <span class="card-role">PRODUÇÃO COMPLETA</span>
                         </div>
                     </a>
-                    <a href="https://open.spotify.com/track/456" class="portfolio-card" target="_blank">
-                        <img src="coverart/bheseumundo.jpg" class="card-img zoom-portfolio">
+                    <a href="https://open.spotify.com/track/4N08mD9p0xJcKzL6Z1n0eC" class="portfolio-card" target="_blank">
+                        <img src="coverart/bheseumundo.jpg" class="card-img square">
                         <div class="card-info">
                             <span class="card-title">BH É SEU MUNDO</span>
                             <span class="card-artist">lavick</span>
@@ -533,11 +540,11 @@
         <!-- <section id="location" class="map-section">
             <h2 class="section-title">COMO CHEGAR?</h2>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.123456!2d-43.123456!3d-19.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA3JzM0LjkiUyA0M8KwMDcnMzQuOSJX!5e0!3m2!1spt-BR!2sbr!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.7587786016773!2d-43.9482163!3d-19.8607172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xad01fa175b5ef6bc!2zTsO0bWFkZSBSZWNvcmQncw!5e0!3m2!1spt-BR!2sbr!4v1650000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <div class="location-info">
                 <p>Rua Duarte da Costa, 360 - Liberdade, Belo Horizonte - MG</p>
-                <a href="https://goo.gl/maps/nomade" target="_blank" class="btn-maps">ABRIR NO GOOGLE MAPS <i class="fas fa-external-link-alt"></i></a>
+                <a href="https://goo.gl/maps/ryYcEESRpgARvPZe7" target="_blank" class="btn-maps">ABRIR NO GOOGLE MAPS <i class="fas fa-external-link-alt"></i></a>
             </div>
         </section> -->
 
