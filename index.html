@@ -197,7 +197,7 @@
 
     #portfolio .portfolio-card:hover .card-info { opacity: 1; backdrop-filter: blur(8px); }
 
-    /* PRODUTOS - EFEITO PREMIUM ATUALIZADO */
+    /* PRODUTOS - DESIGN PREMIUM E LIMPO */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -226,18 +226,18 @@
 
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
     
-    /* Overlay agora começa transparente (capa 100% visível) */
+    /* Overlay começa transparente: Capa limpa e viva */
     .product-overlay { 
         position: absolute; 
         inset: 0; 
         background: rgba(0,0,0,0); 
-        transition: 0.4s;
+        transition: 0.4s ease;
     }
 
-    /* Escurece apenas no hover */
+    /* Escurece e foca apenas quando o mouse passa */
     .product-banner:hover .product-overlay { 
-        background: rgba(0,0,0,0.85); 
-        backdrop-filter: blur(5px);
+        background: rgba(0,0,0,0.88); 
+        backdrop-filter: blur(8px);
     }
 
     .product-content { 
@@ -245,8 +245,8 @@
         z-index: 1; 
         width: 100%; 
         opacity: 0; 
-        transform: translateY(15px);
-        transition: 0.4s ease-out;
+        transform: translateY(20px);
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     .product-banner:hover .product-content { 
@@ -254,23 +254,22 @@
         transform: translateY(0);
     }
 
-    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; letter-spacing: 1px; text-transform: uppercase;}
+    /* Removido o Uppercase forçado */
+    .product-content h3 { margin: 0 0 10px 0; font-size: 22px; letter-spacing: 0.5px; font-weight: 700; }
 
     .price-tag { 
         font-weight: 800; 
         font-size: 20px; 
-        margin-top: 5px; 
         display: flex; 
         justify-content: center; 
         align-items: center;
         gap: 12px; 
     }
 
-    /* Preço Antigo: Inicia branco, fica vermelho e riscado */
+    /* Animação do preço antigo ficando vermelho e taxado */
     .old-price { 
         color: #fff; 
         text-decoration: none; 
-        position: relative;
         transition: color 0.3s ease, text-decoration 0s 0.3s;
     }
 
@@ -279,24 +278,19 @@
         text-decoration: line-through; 
     }
 
-    /* Preço Novo: Inicia transparente e 'nasce' sem o corte */
+    /* Animação do preço novo nascendo sem a linha */
     .new-price-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         opacity: 0;
-        transform: scale(0.8);
-        transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s; /* Delay para o preço antigo agir */
+        transform: translateX(-10px);
+        transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
     }
 
     .product-banner:hover .new-price-wrapper {
         opacity: 1;
-        transform: scale(1);
+        transform: translateX(0);
     }
 
-    .new-price { 
-        color: var(--price-new); 
-    }
+    .new-price { color: var(--price-new); }
 
     /* CONTATO */
     .contact-cta {
