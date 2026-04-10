@@ -197,7 +197,7 @@
 
     #portfolio .portfolio-card:hover .card-info { opacity: 1; backdrop-filter: blur(8px); }
 
-    /* PRODUTOS - EFEITO CLEAN PREMIUM SOLICITADO */
+    /* PRODUTOS - EFEITO PREMIUM ATUALIZADO */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -218,7 +218,7 @@
         color: white;
         background-size: cover;
         background-position: center;
-        transition: 0.4s;
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         border: 1px solid rgba(255,255,255,0.1);
     }
 
@@ -226,25 +226,27 @@
 
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
     
+    /* Overlay agora começa transparente (capa 100% visível) */
     .product-overlay { 
         position: absolute; 
         inset: 0; 
-        background: rgba(0,0,0,0.5); 
+        background: rgba(0,0,0,0); 
         transition: 0.4s;
     }
 
+    /* Escurece apenas no hover */
     .product-banner:hover .product-overlay { 
-        background: rgba(0,0,0,0.8); 
-        backdrop-filter: blur(3px);
+        background: rgba(0,0,0,0.85); 
+        backdrop-filter: blur(5px);
     }
 
     .product-content { 
         position: relative; 
         z-index: 1; 
         width: 100%; 
-        opacity: 0; /* Começa invisível */
-        transform: translateY(10px);
-        transition: 0.4s ease-in-out;
+        opacity: 0; 
+        transform: translateY(15px);
+        transition: 0.4s ease-out;
     }
 
     .product-banner:hover .product-content { 
@@ -252,21 +254,24 @@
         transform: translateY(0);
     }
 
-    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; letter-spacing: 1px; }
+    .product-content h3 { margin: 0 0 8px 0; font-size: 20px; letter-spacing: 1px; text-transform: uppercase;}
 
     .price-tag { 
         font-weight: 800; 
-        font-size: 18px; 
+        font-size: 20px; 
         margin-top: 5px; 
         display: flex; 
         justify-content: center; 
-        gap: 10px; 
+        align-items: center;
+        gap: 12px; 
     }
 
+    /* Preço Antigo: Inicia branco, fica vermelho e riscado */
     .old-price { 
         color: #fff; 
         text-decoration: none; 
-        transition: 0.5s; 
+        position: relative;
+        transition: color 0.3s ease, text-decoration 0s 0.3s;
     }
 
     .product-banner:hover .old-price { 
@@ -274,12 +279,22 @@
         text-decoration: line-through; 
     }
 
-    .new-price { 
-        color: #fff; 
-        transition: 0.5s; 
+    /* Preço Novo: Inicia transparente e 'nasce' sem o corte */
+    .new-price-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s; /* Delay para o preço antigo agir */
     }
 
-    .product-banner:hover .new-price { 
+    .product-banner:hover .new-price-wrapper {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .new-price { 
         color: var(--price-new); 
     }
 
@@ -576,21 +591,30 @@
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>SUPERPACK DE BEATS</h3>
-                        <div class="price-tag"><span class="old-price">R$ 199,99</span> <span class="new-price">R$ 95</span></div>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 199,99</span> 
+                            <span class="new-price-wrapper"><span class="new-price">R$ 95</span></span>
+                        </div>
                     </div>
                 </a>
                 <a href="https://tr.ee/lumussamplepack" class="product-banner" style="background-image: url('img/capa-lumussamplepack.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>Lumus Sample Pack</h3>
-                        <div class="price-tag"><span class="old-price">R$ 49,99</span> <span class="new-price">R$ 25</span></div>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 49,99</span> 
+                            <span class="new-price-wrapper"><span class="new-price">R$ 25</span></span>
+                        </div>
                     </div>
                 </a>
                 <a href="https://tr.ee/methodical" class="product-banner methodical-bg" style="background-image: url('img/capa-methodical.jpg');" target="_blank">
                     <div class="product-overlay"></div>
                     <div class="product-content">
                         <h3>methodical. loop pack</h3>
-                        <div class="price-tag"><span class="old-price">R$ 79,99</span> <span class="new-price">R$ 45</span></div>
+                        <div class="price-tag">
+                            <span class="old-price">R$ 79,99</span> 
+                            <span class="new-price-wrapper"><span class="new-price">R$ 45</span></span>
+                        </div>
                     </div>
                 </a>
             </div>
