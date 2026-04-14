@@ -174,6 +174,39 @@
     .square { aspect-ratio: 1/1; }
     .wide { aspect-ratio: 16/9; transform: scale(1.8); }
 
+    /* ESTILO BOTÃO DE DOWNLOAD */
+    .download-btn {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        background: var(--accent);
+        color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        z-index: 10;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .portfolio-card:hover .download-btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .download-btn:hover {
+        transform: scale(1.1) !important;
+        background: white;
+        box-shadow: 0 0 20px var(--accent);
+        color: #000;
+    }
+
     .card-info { padding: 18px; background: var(--card-bg); }
     
     .card-title { font-weight: bold; display: block; font-size: 16px; margin-bottom: 4px; }
@@ -197,7 +230,6 @@
 
     #portfolio .portfolio-card:hover .card-info { opacity: 1; backdrop-filter: blur(8px); }
 
-    /* PRODUTOS - DESIGN PREMIUM E LIMPO */
     .shop-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -226,7 +258,6 @@
 
     .product-banner:hover { transform: scale(1.02); border-color: var(--accent); }
     
-    /* Overlay começa transparente: Capa limpa e viva */
     .product-overlay { 
         position: absolute; 
         inset: 0; 
@@ -234,7 +265,6 @@
         transition: 0.4s ease;
     }
 
-    /* Escurece e foca apenas quando o mouse passa */
     .product-banner:hover .product-overlay { 
         background: rgba(0,0,0,0.4); 
         backdrop-filter: blur(4px);
@@ -254,7 +284,6 @@
         transform: translateY(0);
     }
 
-    /* Removido o Uppercase forçado */
     .product-content h3 { margin: 0 0 10px 0; font-size: 22px; letter-spacing: 0.5px; font-weight: 700; }
 
     .price-tag { 
@@ -266,7 +295,6 @@
         gap: 12px; 
     }
 
-    /* Animação do preço antigo ficando vermelho e taxado */
     .old-price { 
         color: #fff; 
         text-decoration: none; 
@@ -278,7 +306,6 @@
         text-decoration: line-through; 
     }
 
-    /* Animação do preço novo nascendo sem a linha */
     .new-price-wrapper {
         opacity: 0;
         transform: translateX(-10px);
@@ -292,7 +319,6 @@
 
     .new-price { color: var(--price-new); }
 
-    /* CONTATO */
     .contact-cta {
         margin: 60px 0 0;
         padding: 80px 20px;
@@ -357,37 +383,80 @@
                 </div>
             </div>
             <div class="free-beats-grid" id="beats-grid">
-                <a href="https://www.youtube.com/watch?v=4NvzTWcV0Ow" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Always</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">125 BPM | Em</span> <span class="card-role">Duzz x Dudu x Jotapê Type Beat</span> </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=0WjVd2kVz3A" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/0WjVd2kVz3A/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Heaven</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">115 BPM | Gm</span> <span class="card-role">Dudu x Jotapê Type Beat</span> </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=xa5LqMDkeVU" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/xa5LqMDkeVU/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Bonk</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">135 BPM | C</span> <span class="card-role">Yeat x Ken Carson x Lunchbox Type Beat</span> </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=_RJ9JK8qBrY" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/_RJ9JK8qBrY/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Scary</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">176 BPM | Bm</span> <span class="card-role">Tchelo x Kyan x Retroboy Type Beat</span> </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=fyDUekf0SB4" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/fyDUekf0SB4/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Caveman</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">132 BPM | Dm</span> <span class="card-role">Yeat x Playboi Carti x Trippie Redd Type Beat</span> </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=JdmJjsv9cb0" class="portfolio-card" target="_blank">
-                    <div class="img-container"><img src="https://img.youtube.com/vi/JdmJjsv9cb0/maxresdefault.jpg" class="card-img wide"></div>
-                    <div class="card-info">
-                        <span class="card-title">Off Lights</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">120 BPM | G#m</span> <span class="card-role">Massaru x Kyan x Aka Rasta Type Beat</span> </div>
-                </a>
+                
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <a href="https://www.youtube.com/watch?v=4NvzTWcV0Ow" target="_blank"><img src="https://img.youtube.com/vi/4NvzTWcV0Ow/maxresdefault.jpg" class="card-img wide"></a>
+                        <a href="#" class="download-btn" title="Baixar Beat"><i class="fas fa-download"></i></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=4NvzTWcV0Ow" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="card-info">
+                            <span class="card-title">Always</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">125 BPM | Em</span> <span class="card-role">Duzz x Dudu x Jotapê Type Beat</span> 
+                        </div>
+                    </a>
                 </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <a href="https://www.youtube.com/watch?v=0WjVd2kVz3A" target="_blank"><img src="https://img.youtube.com/vi/0WjVd2kVz3A/maxresdefault.jpg" class="card-img wide"></a>
+                        <a href="#" class="download-btn" title="Baixar Beat"><i class="fas fa-download"></i></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=0WjVd2kVz3A" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="card-info">
+                            <span class="card-title">Heaven</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">115 BPM | Gm</span> <span class="card-role">Dudu x Jotapê Type Beat</span> 
+                        </div>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <a href="https://www.youtube.com/watch?v=xa5LqMDkeVU" target="_blank"><img src="https://img.youtube.com/vi/xa5LqMDkeVU/maxresdefault.jpg" class="card-img wide"></a>
+                        <a href="#" class="download-btn" title="Baixar Beat"><i class="fas fa-download"></i></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=xa5LqMDkeVU" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="card-info">
+                            <span class="card-title">Bonk</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">135 BPM | C</span> <span class="card-role">Yeat x Ken Carson x Lunchbox Type Beat</span> 
+                        </div>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <a href="https://www.youtube.com/watch?v=_RJ9JK8qBrY" target="_blank"><img src="https://img.youtube.com/vi/_RJ9JK8qBrY/maxresdefault.jpg" class="card-img wide"></a>
+                        <a href="#" class="download-btn" title="Baixar Beat"><i class="fas fa-download"></i></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=_RJ9JK8qBrY" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="card-info">
+                            <span class="card-title">Scary</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">176 BPM | Bm</span> <span class="card-role">Tchelo x Kyan x Retroboy Type Beat</span> 
+                        </div>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <a href="https://www.youtube.com/watch?v=fyDUekf0SB4" target="_blank"><img src="https://img.youtube.com/vi/fyDUekf0SB4/maxresdefault.jpg" class="card-img wide"></a>
+                        <a href="#" class="download-btn" title="Baixar Beat"><i class="fas fa-download"></i></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=fyDUekf0SB4" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="card-info">
+                            <span class="card-title">Caveman</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">132 BPM | Dm</span> <span class="card-role">Yeat x Playboi Carti x Trippie Redd Type Beat</span> 
+                        </div>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="img-container">
+                        <a href="https://www.youtube.com/watch?v=JdmJjsv9cb0" target="_blank"><img src="https://img.youtube.com/vi/JdmJjsv9cb0/maxresdefault.jpg" class="card-img wide"></a>
+                        <a href="coverart/medley.jpg" class="download-btn" title="Baixar Beat"><i class="fas fa-download"></i></a>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=JdmJjsv9cb0" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="card-info">
+                            <span class="card-title">Off Lights</span> <span class="card-artist">Free for Non Profit</span> <span class="card-tech">120 BPM | G#m</span> <span class="card-role">Massaru x Kyan x Aka Rasta Type Beat</span> 
+                        </div>
+                    </a>
+                </div>
+
+            </div>
         </section>
 
         <section id="portfolio">
@@ -575,7 +644,7 @@
                         <span class="card-role">PRODUÇÃO COMPLETA</span>
                     </div>
                 </a>
-                </div>
+            </div>
         </section>
 
         <section id="shop">
